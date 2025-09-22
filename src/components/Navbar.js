@@ -76,8 +76,8 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* CTA Button */}
-            <div className="hidden lg:block">
+            {/* CTA Buttons */}
+            <div className="hidden lg:flex items-center space-x-4">
               <Link
                 to="/contact"
                 className="btn-primary"

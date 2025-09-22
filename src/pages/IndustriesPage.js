@@ -8,7 +8,7 @@ const IndustriesPage = () => {
       name: 'Automotive',
       description: 'Cars, trucks, buses, and commercial vehicles',
       icon: <Truck className="w-12 h-12 text-primary-600" />,
-      image: 'https://source.unsplash.com/600x400/?trucks,cars,automotive',
+      image: '/images/automotive.jpg',
       applications: [
         'Passenger vehicles',
         'Commercial trucks',
@@ -22,7 +22,7 @@ const IndustriesPage = () => {
       name: 'Construction',
       description: 'Excavators, loaders, bulldozers, and heavy machinery',
       icon: <Building className="w-12 h-12 text-primary-600" />,
-      image: 'https://source.unsplash.com/600x400/?excavator,construction,heavy-machinery',
+      image: '/images/Construction.jpg',
       applications: [
         'Excavators and loaders',
         'Bulldozers and graders',
@@ -36,7 +36,7 @@ const IndustriesPage = () => {
       name: 'Agriculture',
       description: 'Tractors, harvesters, and farming equipment',
       icon: <Tractor className="w-12 h-12 text-primary-600" />,
-      image: 'https://source.unsplash.com/600x400/?tractor,harvester,agriculture',
+      image: '/images/Agriculture.jpg',
       applications: [
         'Tractors and harvesters',
         'Planting equipment',
@@ -50,7 +50,7 @@ const IndustriesPage = () => {
       name: 'Power & Energy',
       description: 'Generators, compressors, and power systems',
       icon: <Zap className="w-12 h-12 text-primary-600" />,
-      image: 'https://source.unsplash.com/600x400/?generator,power-plant,energy',
+      image: '/images/Power-Energy.jpg',
       applications: [
         'Power generators',
         'Compressors',
@@ -64,7 +64,7 @@ const IndustriesPage = () => {
       name: 'Industrial Machines',
       description: 'Manufacturing equipment and hydraulic systems',
       icon: <Cog className="w-12 h-12 text-primary-600" />,
-      image: 'https://source.unsplash.com/600x400/?manufacturing,industrial,hydraulic',
+      image: '/images/Industrial-Machines.jpg',
       applications: [
         'Manufacturing equipment',
         'Hydraulic systems',
@@ -78,7 +78,7 @@ const IndustriesPage = () => {
       name: 'Marine & Offshore',
       description: 'Boats, ships, and offshore equipment',
       icon: <Wrench className="w-12 h-12 text-primary-600" />,
-      image: 'https://source.unsplash.com/600x400/?ship,marine,offshore',
+      image: '/images/Marine-Offshore.jpg',
       applications: [
         'Commercial vessels',
         'Fishing boats',
@@ -138,6 +138,10 @@ const IndustriesPage = () => {
                     src={industry.image}
                     alt={`${industry.name} industry applications and machinery`}
                     className="w-full h-64 object-cover"
+                    onError={(e) => {
+                      e.target.src = `https://via.placeholder.com/600x400/1e40af/ffffff?text=${encodeURIComponent(industry.name)}`;
+                      console.log(`Failed to load image for ${industry.name}: ${industry.image}`);
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 right-4">

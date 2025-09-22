@@ -90,21 +90,21 @@ const SupportPage = () => {
       description: 'Learn to identify when your air filter is due for replacement to maintain optimal engine performance.',
       date: 'March 15, 2024',
       readTime: '5 min read',
-      image: 'https://source.unsplash.com/400x250/?air-filter,car-maintenance'
+      image: '/images/Air-Filters.jpeg'
     },
     {
       title: 'Understanding Hydraulic Filter Types',
       description: 'A comprehensive guide to different hydraulic filter types and their applications in industrial machinery.',
       date: 'March 10, 2024',
       readTime: '8 min read',
-      image: 'https://source.unsplash.com/400x250/?hydraulic-filter,machine'
+      image: '/images/Hydraulic-Return-Filter.jpg'
     },
     {
       title: 'Fuel Filter Maintenance Best Practices',
       description: 'Essential tips for maintaining fuel filters to prevent engine damage and ensure smooth operation.',
       date: 'March 5, 2024',
       readTime: '6 min read',
-      image: 'https://source.unsplash.com/400x250/?fuel-filter,diesel'
+      image: '/images/Fuel-Filter.jpg'
     }
   ];
 
@@ -263,6 +263,10 @@ const SupportPage = () => {
                   src={post.image}
                   alt={post.title}
                   className="w-full h-48 object-cover"
+                  onError={(e) => {
+                    e.target.src = `https://via.placeholder.com/400x250/1e40af/ffffff?text=${encodeURIComponent(post.title)}`;
+                    console.log(`Failed to load image for ${post.title}: ${post.image}`);
+                  }}
                 />
                 <div className="p-6">
                   <div className="flex items-center text-sm text-gray-500 mb-3">

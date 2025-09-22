@@ -24,8 +24,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:prod": "node build-production.js && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "analyze": "npm run build && npx serve -s build",
+    "preview": "npx serve -s build"
   },
   "eslintConfig": {
     "extends": [

@@ -8,7 +8,7 @@ const ServicesPage = () => {
       title: 'Custom Filter Design & Engineering',
       description: 'Our engineering team designs custom filtration solutions tailored to your specific requirements and applications.',
       icon: <Wrench className="w-12 h-12 text-primary-600" />,
-      image: 'https://source.unsplash.com/600x400/?engineering,design,blueprint',
+      image: '/images/services/custom-design-engineering.jpg',
       features: [
         'Custom filter specifications',
         'CAD design and modeling',
@@ -22,7 +22,7 @@ const ServicesPage = () => {
       title: 'OEM & Aftermarket Supply',
       description: 'Comprehensive supply chain management for both original equipment manufacturers and aftermarket distribution.',
       icon: <Cog className="w-12 h-12 text-primary-600" />,
-      image: 'https://source.unsplash.com/600x400/?manufacturing,assembly,production',
+      image: '/images/services/oem-aftermarket-supply.jpg',
       features: [
         'OEM partnerships',
         'Aftermarket distribution',
@@ -36,7 +36,7 @@ const ServicesPage = () => {
       title: 'Bulk Distribution & Logistics',
       description: 'Efficient logistics and distribution services for large-scale orders and international shipments.',
       icon: <Truck className="w-12 h-12 text-primary-600" />,
-      image: 'https://source.unsplash.com/600x400/?logistics,warehouse,shipping',
+      image: '/images/services/bulk-distribution-logistics.jpg',
       features: [
         'Bulk order processing',
         'International shipping',
@@ -50,7 +50,7 @@ const ServicesPage = () => {
       title: 'Technical Consultation & Training',
       description: 'Expert technical support and training programs to help your team optimize filtration systems.',
       icon: <Users className="w-12 h-12 text-primary-600" />,
-      image: 'https://source.unsplash.com/600x400/?training,consultation,meeting',
+      image: '/images/services/technical-consultation-training.jpg',
       features: [
         'Technical consultation',
         'Staff training programs',
@@ -64,7 +64,7 @@ const ServicesPage = () => {
       title: 'After-Sales Support & Warranty',
       description: 'Comprehensive after-sales support including warranty services and ongoing maintenance assistance.',
       icon: <Headphones className="w-12 h-12 text-primary-600" />,
-      image: 'https://source.unsplash.com/600x400/?support,customer-service,help',
+      image: '/images/services/customer-support-service.jpg',
       features: [
         'Warranty coverage',
         'Technical support',
@@ -78,7 +78,7 @@ const ServicesPage = () => {
       title: 'Quality Assurance & Testing',
       description: 'Rigorous quality testing and certification to ensure all products meet international standards.',
       icon: <Award className="w-12 h-12 text-primary-600" />,
-      image: 'https://source.unsplash.com/600x400/?testing,quality-control,laboratory',
+      image: '/images/services/quality-testing-certification.jpg',
       features: [
         'ISO certification',
         'Performance testing',
@@ -147,6 +147,10 @@ const ServicesPage = () => {
                     src={service.image}
                     alt={`${service.title} - Professional filtration services`}
                     className="w-full h-64 object-cover"
+                    onError={(e) => {
+                      e.target.src = `https://via.placeholder.com/600x400/1e40af/ffffff?text=${encodeURIComponent(service.title)}`;
+                      console.log(`Failed to load image for ${service.title}: ${service.image}`);
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 right-4">

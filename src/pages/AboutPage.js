@@ -61,22 +61,22 @@ const AboutPage = () => {
 
   const team = [
     {
-      name: 'John Mwangi',
+      name: 'Michael Kimaiyo',
       position: 'Managing Director',
-      image: 'https://source.unsplash.com/300x300/?portrait,professional,african-man',
+      image: '/images/team/michael-kimaiyo.jpg',
       description: 'Over 15 years experience in filtration industry'
     },
     {
-      name: 'Sarah Kimani',
-      position: 'Technical Director',
-      image: 'https://source.unsplash.com/300x300/?portrait,professional,african-woman',
-      description: 'Expert in filtration system design and engineering'
+      name: 'Josphat Oleteipa',
+      position: 'General Manager',
+      image: '/images/team/josphat-oleteipa.jpg',
+      description: 'Expert in operations management and business development'
     },
     {
-      name: 'Peter Otieno',
-      position: 'Operations Manager',
-      image: 'https://source.unsplash.com/300x300/?portrait,professional,african-man',
-      description: 'Specializes in supply chain and logistics management'
+      name: 'Harrison Maina',
+      position: 'Sales Manager',
+      image: '/images/team/harrison-maina.jpg',
+      description: 'Specializes in sales strategy and customer relations'
     }
   ];
 
@@ -130,9 +130,13 @@ const AboutPage = () => {
             </div>
             <div>
               <img
-                src="https://source.unsplash.com/600x400/?factory,industrial,manufacturing"
+                src="/images/about/factory-facility.jpg"
                 alt="Amazon Filtration manufacturing facility and team"
                 className="rounded-lg shadow-lg"
+                onError={(e) => {
+                  e.target.src = `https://via.placeholder.com/600x400/1e40af/ffffff?text=Factory+Facility`;
+                  console.log(`Failed to load factory image: /images/about/factory-facility.jpg`);
+                }}
               />
             </div>
           </div>
@@ -207,6 +211,10 @@ const AboutPage = () => {
                   src={member.image}
                   alt={`${member.name} - ${member.position}`}
                   className="w-48 h-48 rounded-full mx-auto mb-4 object-cover"
+                  onError={(e) => {
+                    e.target.src = `https://via.placeholder.com/300x300/1e40af/ffffff?text=${encodeURIComponent(member.name)}`;
+                    console.log(`Failed to load image for ${member.name}: ${member.image}`);
+                  }}
                 />
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{member.name}</h3>
                 <p className="text-primary-600 font-medium mb-2">{member.position}</p>

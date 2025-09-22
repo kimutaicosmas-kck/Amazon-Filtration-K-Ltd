@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle, Download } from 'lucide-react';
+import { sendContactEmail, getContactInfo } from '../services/emailService';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ const ContactPage = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -26,21 +28,31 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError('');
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // Send email using the email service
+      const result = await sendContactEmail(formData);
+      
+      if (result.success) {
+        setIsSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          subject: '',
+          message: '',
+          inquiryType: 'general'
+        });
+      } else {
+        setSubmitError(result.message);
+      }
+    } catch (error) {
+      setSubmitError(error.message || 'An error occurred. Please try again.');
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        subject: '',
-        message: '',
-        inquiryType: 'general'
-      });
-    }, 2000);
+    }
   };
 
   const contactInfo = [
@@ -49,7 +61,7 @@ const ContactPage = () => {
       title: 'Address',
       details: [
         'Lokitang Road, Off Likoni Rd',
-        'Shed 18 – Kenya Industrial Estates',
+        'Shed 18-Kenya Industrial Estates',
         'Nairobi, Kenya'
       ]
     },
@@ -277,6 +289,25 @@ const ContactPage = () => {
                   />
                 </div>
 
+                {/* Error Message */}
+                {submitError && (
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                    <div className="flex">
+                      <div className="flex-shrink-0">
+                        <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div className="ml-3">
+                        <h3 className="text-sm font-medium text-red-800">Error</h3>
+                        <div className="mt-2 text-sm text-red-700">
+                          <p>{submitError}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -302,12 +333,18 @@ const ContactPage = () => {
           <div className="space-y-8">
             {/* Map */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <div className="h-64 bg-gray-200 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-                  <p className="text-gray-600">Interactive Map</p>
-                  <p className="text-sm text-gray-500">Lokitang Road, Off Likoni Rd</p>
-                </div>
+              <div className="h-96 w-full">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8!2d36.8!3d-1.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f0a4b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sLokitang%20Road%2C%20Off%20Likoni%20Rd%2C%20Shed%2018-Kenya%20Industrial%20Estates%2C%20Nairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1234567890123!5m2!1sen!2ske"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Amazon Filtration Location Map"
+                  className="rounded-t-xl"
+                ></iframe>
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Visit Our Office</h3>
@@ -315,9 +352,14 @@ const ContactPage = () => {
                   Located in Kenya Industrial Estates, our facility is easily accessible and includes 
                   a showroom where you can view our products and meet with our technical team.
                 </p>
-                <button className="btn-outline text-sm py-2 px-4">
+                <a 
+                  href="https://www.google.com/maps/dir/?api=1&destination=Lokitang+Road,+Off+Likoni+Rd,+Shed+18-Kenya+Industrial+Estates,+Nairobi,+Kenya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline text-sm py-2 px-4 inline-block"
+                >
                   Get Directions
-                </button>
+                </a>
               </div>
             </div>
 

@@ -1,91 +1,113 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Search, Filter, Download, Eye, MessageCircle } from 'lucide-react';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || 'All');
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const [loading, setLoading] = useState(true);
 
-  const categories = ['All', 'Oil', 'Fuel', 'Air', 'Hydraulic', 'Coolant', 'Cabin'];
+  const categories = ['All', 'Air Filters', 'Fuel Filters', 'Oil Filters', 'Hydraulic Return Filters', 'Coolant Filters', 'Cabin Filters'];
 
-  // Mock data - in real app, this would come from API
-  const mockProducts = [
-    {
-      id: 1,
-      name: 'Heavy Duty Oil Filter',
-      category: 'Oil',
-      description: 'High-performance oil filter designed for heavy-duty engines. Provides superior filtration and extended service life.',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center',
-      datasheet: '#'
-    },
-    {
-      id: 2,
-      name: 'Diesel Fuel Filter',
-      category: 'Fuel',
-      description: 'Advanced diesel fuel filter with water separation capability. Protects fuel injection systems from contamination.',
-      image: 'https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=400&h=300&fit=crop&crop=center',
-      datasheet: '#'
-    },
-    {
-      id: 3,
-      name: 'Engine Air Filter',
-      category: 'Air',
-      description: 'High-efficiency air filter for engine intake systems. Ensures clean air supply for optimal engine performance.',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center',
-      datasheet: '#'
-    },
-    {
-      id: 4,
-      name: 'Hydraulic Return Filter',
-      category: 'Hydraulic',
-      description: 'High-pressure hydraulic return filter for hydraulic systems. Maintains system cleanliness and component protection.',
-      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=300&fit=crop&crop=center',
-      datasheet: '#'
-    },
-    {
-      id: 5,
-      name: 'Coolant Filter',
-      category: 'Coolant',
-      description: 'Engine coolant filter for temperature regulation systems. Prevents corrosion and maintains cooling efficiency.',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center',
-      datasheet: '#'
-    },
-    {
-      id: 6,
-      name: 'Cabin Air Filter',
-      category: 'Cabin',
-      description: 'Premium cabin air filter for passenger comfort. Removes dust, pollen, and airborne contaminants.',
-      image: 'https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=400&h=300&fit=crop&crop=center',
-      datasheet: '#'
-    },
-    {
-      id: 7,
-      name: 'Synthetic Oil Filter',
-      category: 'Oil',
-      description: 'Premium synthetic oil filter for high-performance engines. Extended service intervals and superior protection.',
-      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=300&fit=crop&crop=center',
-      datasheet: '#'
-    },
-    {
-      id: 8,
-      name: 'Gasoline Fuel Filter',
-      category: 'Fuel',
-      description: 'High-flow gasoline fuel filter for fuel injection systems. Ensures clean fuel delivery and engine protection.',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center',
-      datasheet: '#'
-    }
-  ];
-
+  // Load products from admin data
   useEffect(() => {
-    // Simulate API call
-    setTimeout(() => {
+    console.log('Loading products...');
+    const adminProducts = localStorage.getItem('adminProducts');
+    if (adminProducts) {
+      console.log('Found admin products');
+      const parsedProducts = JSON.parse(adminProducts);
+      // Filter only active products for public display
+      const activeProducts = parsedProducts.filter(product => product.status === 'Active');
+      setProducts(activeProducts);
+      setFilteredProducts(activeProducts);
+      console.log('Admin products loaded:', activeProducts);
+    } else {
+      console.log('No admin products, using fallback');
+      // Fallback to real Amazon Filter products if no admin products exist
+      const mockProducts = [
+        {
+          id: 1,
+          name: 'Cylindrical Air Filter',
+          code: '8-94156-052-0',
+          category: 'Air Filters',
+          price: 4500,
+          description: 'Heavy-duty cylindrical air filter with metal mesh casing and pleated filtration media. Designed for industrial and automotive applications requiring high airflow and superior filtration.',
+          image: '/images/8-94156-052-0.jpg',
+          specifications: 'Cylindrical design, Metal mesh casing, Pleated media, High airflow capacity',
+          applications: 'Industrial machinery, automotive engines, heavy equipment',
+          datasheet: '#'
+        },
+        {
+          id: 2,
+          name: 'Amazon Filter 17801 20040',
+          code: '17801-20040',
+          category: 'Air Filters',
+          price: 3200,
+          description: 'Rectangular cabin air filter with pleated design for maximum surface area. Provides clean air filtration for passenger comfort and engine protection.',
+          image: '/images/17801-20040.jpg',
+          specifications: 'Rectangular design, Pleated media, High efficiency, Durable construction',
+          applications: 'Cabin air filtration, HVAC systems, passenger vehicles',
+          datasheet: '#'
+        },
+        {
+          id: 3,
+          name: 'Amazon Filter 17801 22020',
+          code: '17801-22020',
+          category: 'Air Filters',
+          price: 3800,
+          description: 'Premium rectangular air filter with enhanced pleated design. Engineered for superior filtration performance and extended service life.',
+          image: '/images/17801-22020.jpg',
+          specifications: 'Enhanced pleated design, Premium filtration media, Extended service life',
+          applications: 'Automotive engines, industrial air systems, commercial vehicles',
+          datasheet: '#'
+        },
+        {
+          id: 4,
+          name: 'Heavy Duty Oil Filter',
+          code: '51010',
+          category: 'Oil Filters',
+          price: 2800,
+          description: 'High-performance spin-on oil filter designed for heavy-duty engines. Provides superior filtration and extended service life.',
+          image: '/images/51010.jpg',
+          specifications: 'Spin-on design, Heavy-duty construction, High filtration efficiency',
+          applications: 'Diesel engines, heavy machinery, commercial vehicles',
+          datasheet: '#'
+        },
+        {
+          id: 5,
+          name: 'Diesel Fuel Filter',
+          code: '31010',
+          category: 'Fuel Filters',
+          price: 4200,
+          description: 'Advanced diesel fuel filter with water separation capability. Protects fuel injection systems from contamination and water damage.',
+          image: '/images/31010.jpg',
+          specifications: 'Water separation: 95%, Filtration: 10 microns, Pressure: 4 bar',
+          applications: 'Diesel engines, generators, marine engines, heavy equipment',
+          datasheet: '#'
+        },
+        {
+          id: 6,
+          name: 'Hydraulic Return Filter',
+          code: '81010',
+          category: 'Hydraulic Return Filters',
+          price: 5500,
+          description: 'High-pressure hydraulic return filter for hydraulic systems. Maintains system cleanliness and protects hydraulic components.',
+          image: '/images/81010.jpg',
+          specifications: 'High-pressure rating, Return line filtration, System protection',
+          applications: 'Hydraulic systems, construction equipment, industrial machinery',
+          datasheet: '#'
+        }
+      ];
       setProducts(mockProducts);
-      setLoading(false);
-    }, 1000);
+      setFilteredProducts(mockProducts);
+      console.log('Fallback products loaded:', mockProducts);
+    }
+    console.log('Setting loading to false');
+    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -115,13 +137,12 @@ const ProductsPage = () => {
     setSearchTerm(e.target.value);
   };
 
+  console.log('Render state:', { loading, products: products.length, filteredProducts: filteredProducts.length });
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading products...</p>
-        </div>
+        <LoadingSpinner size="xl" text="Loading products..." />
       </div>
     );
   }
@@ -227,7 +248,13 @@ const ProductsPage = () => {
                         alt={`${product.name} - High-quality ${product.category.toLowerCase()} filter`}
                         className="w-full h-48 object-cover rounded-t-lg"
                         onError={(e) => {
-                          e.target.src = `https://via.placeholder.com/400x300/1e40af/ffffff?text=${encodeURIComponent(product.name)}`;
+                          // Try local image first, then fallback to placeholder
+                          const localImage = `/images/${product.code}.jpg`;
+                          if (e.target.src !== localImage) {
+                            e.target.src = localImage;
+                          } else {
+                            e.target.src = `https://via.placeholder.com/400x300/1e40af/ffffff?text=${encodeURIComponent(product.name)}`;
+                          }
                         }}
                       />
                     </div>
@@ -236,10 +263,20 @@ const ProductsPage = () => {
                         <span className="inline-block bg-primary-100 text-primary-800 text-xs font-medium px-2.5 py-0.5 rounded">
                           {product.category}
                         </span>
+                        {product.code && (
+                          <span className="text-xs text-gray-500 font-mono">
+                            Code: {product.code}
+                          </span>
+                        )}
                       </div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
                         {product.name}
                       </h3>
+                      {product.price && (
+                        <div className="text-xl font-bold text-primary-600 mb-3">
+                          Ksh {product.price.toLocaleString()}
+                        </div>
+                      )}
                       <p className="text-gray-600 text-sm mb-4 line-clamp-3">
                         {product.description}
                       </p>
