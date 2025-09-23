@@ -1,22 +1,17 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "build/**/*",
-      "use": "@vercel/static"
-    }
-  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "installCommand": "npm install",
+  "framework": "create-react-app",
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "/build/static/$1"
+      "dest": "/static/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/build/index.html"
+      "dest": "/index.html"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
