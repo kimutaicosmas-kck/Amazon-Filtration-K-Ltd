@@ -23,12 +23,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build:prod": "node build-production.js && react-scripts build",
+    "build": "node build-production.js && react-scripts build",
+    "build:dev": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "analyze": "npm run build && npx serve -s build",
-    "preview": "npx serve -s build"
+    "preview": "npx serve -s build",
+    "deploy": "npm run build && npx netlify deploy --prod --dir=build"
   },
   "eslintConfig": {
     "extends": [

@@ -1,255 +1,196 @@
-# Amazon Filtration (K) Ltd - Website
+# Amazon Filtration (K) Ltd - Professional Website
 
-A modern, professional website for Amazon Filtration (K) Ltd, a manufacturer and supplier of filtration products. Built with React.js frontend and Django backend.
+<div align="center">
 
-## 🌟 Features
+![Amazon Filtration Logo](public/logo.svg)
 
-### Frontend (React + Tailwind CSS)
+**Your Trusted Supplier For Machine Filtration**
 
-- **Modern Design**: Clean, industrial-modern design with blue/grey/white color scheme
-- **Responsive**: Mobile-first responsive design that works on all devices
-- **SEO Optimized**: Meta tags, structured data, and optimized images
-- **Interactive Components**: Smooth animations and hover effects
-- **Professional Pages**:
-  - Homepage with hero banner and quick links
-  - Products page with filtering and search
-  - Industries served page
-  - Services page
-  - About Us and Vision pages
-  - Support/Resources page with FAQs
-  - Contact page with form and map
+[![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://app.netlify.com/sites/your-site-name/deploys)
+[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3.6-38B2AC.svg)](https://tailwindcss.com/)
+[![Django](https://img.shields.io/badge/Django-4.2.7-green.svg)](https://djangoproject.com/)
 
-### Backend (Django + MySQL)
+</div>
 
-- **RESTful API**: Django REST Framework for API endpoints
-- **Database Models**: Products, Industries, Services, Contact Requests, Testimonials
-- **Admin Interface**: Django admin for content management
-- **CORS Support**: Configured for frontend-backend communication
+## 🌟 **Overview**
 
-## 🚀 Quick Start
+A modern, professional website for **Amazon Filtration (K) Ltd**, a leading manufacturer and supplier of high-performance filtration products. Built with cutting-edge technologies and designed for optimal user experience and business growth.
 
-### Prerequisites
+## ✨ **Key Features**
 
+### 🎨 **Modern Design & User Experience**
+- **Professional Industrial Design** - Clean, modern interface with blue/grey/white color scheme
+- **Fully Responsive** - Mobile-first design that works perfectly on all devices
+- **Fast Performance** - Optimized loading times and smooth animations
+- **SEO Optimized** - Meta tags, structured data, and search engine friendly
+
+### 🏢 **Business Features**
+- **Product Catalog** - Comprehensive filter product showcase with search and filtering
+- **Industry Applications** - Detailed industry-specific solutions and applications
+- **Company Services** - Professional service offerings and capabilities
+- **Contact System** - Integrated contact form with email notifications
+- **Admin Panel** - Complete product management system
+
+### 🛠️ **Technical Excellence**
+- **React Frontend** - Modern, component-based architecture
+- **Tailwind CSS** - Utility-first CSS framework for rapid development
+- **Django Backend** - Robust API and content management system
+- **Production Ready** - Optimized build and deployment configuration
+
+## 🚀 **Quick Start**
+
+### **Prerequisites**
 - Node.js (v14 or higher)
-- Python (v3.8 or higher)
-- MySQL database
+- npm or yarn package manager
 
-### Frontend Setup
+### **Installation & Development**
 
 ```bash
-cd frontend
+# Clone the repository
+git clone https://github.com/kimutaicosmas-kck/Amazon-Filtration-K-Ltd.git
+
+# Navigate to project directory
+cd Amazon-Filtration-K-Ltd
+
+# Install dependencies
 npm install
+
+# Start development server
 npm start
+
+# Open http://localhost:3000 in your browser
 ```
 
-### Backend Setup
+### **Production Build**
 
 ```bash
-cd backend
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
+# Create production build
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-## 📁 Project Structure
+## 📁 **Project Structure**
 
 ```
 amazon-filtration-website/
-├── frontend/                 # React frontend
-│   ├── public/
-│   ├── src/
-│   │   ├── components/      # Reusable components
-│   │   ├── pages/          # Page components
-│   │   └── App.js          # Main app component
-│   └── package.json
-├── backend/                 # Django backend
-│   ├── amazon_filtration/  # Django project settings
-│   ├── api/               # API app
-│   │   ├── models.py      # Database models
-│   │   ├── views.py       # API views
-│   │   └── serializers.py # Data serializers
-│   └── manage.py
-└── requirements.txt        # Python dependencies
+├── 📁 src/                          # React Frontend
+│   ├── 📁 components/               # Reusable UI Components
+│   ├── 📁 pages/                   # Page Components
+│   ├── 📁 services/                # Business Logic
+│   └── App.js                      # Main Application
+├── 📁 public/                      # Static Assets
+│   ├── 📁 images/                  # Image Assets
+│   ├── index.html                  # HTML Template
+│   └── manifest.json               # PWA Manifest
+├── 📁 backend/                     # Django Backend (Optional)
+├── 📄 Configuration Files          # Build & Deployment Config
+└── 📄 Documentation               # Project Documentation
 ```
 
-## 🎨 Design System
+## 🎯 **Pages & Features**
 
-### Colors
+| Page | Description | Key Features |
+|------|-------------|--------------|
+| **Homepage** | Company introduction and overview | Hero carousel, quick links, product categories |
+| **Products** | Filter product catalog | Search, filtering, product details, pricing |
+| **Industries** | Industry applications | Visual cards, applications, product recommendations |
+| **Services** | Company services | Service offerings, process workflow, capabilities |
+| **About** | Company information | Team profiles, company history, values |
+| **Contact** | Contact and location | Contact form, Google Maps, company details |
+| **Admin** | Product management | Add/edit products, inventory management |
 
-- **Primary Blue**: #3b82f6 (Trust, reliability)
-- **Industrial Grey**: #64748b (Professional, industrial)
-- **White**: #ffffff (Clean, modern)
+## 🛠️ **Technology Stack**
 
-### Typography
+### **Frontend**
+- **React 18.2.0** - Modern JavaScript library
+- **Tailwind CSS 3.3.6** - Utility-first CSS framework
+- **React Router** - Client-side routing
+- **Lucide React** - Beautiful icons
+- **Framer Motion** - Smooth animations
 
-- **Primary Font**: Montserrat
-- **Secondary Font**: Roboto
-- **Fallback**: Open Sans
+### **Backend (Optional)**
+- **Django 4.2.7** - Python web framework
+- **Django REST Framework** - API development
+- **SQLite/MySQL** - Database management
 
-### Components
+### **Deployment**
+- **Netlify** - Frontend hosting and deployment
+- **GitHub** - Version control and CI/CD
 
-- Modern card-based layouts
-- Smooth hover animations
-- Professional button styles
-- Responsive grid systems
+## 🚀 **Deployment**
 
-## 📱 Pages Overview
+### **Netlify (Recommended)**
 
-### Homepage
+1. **Connect Repository**
+   - Go to [netlify.com](https://netlify.com)
+   - Sign up with GitHub
+   - Connect your repository
 
-- Hero banner with call-to-action buttons
-- Quick links to main sections
-- Product categories showcase
-- Company features and benefits
+2. **Configure Build Settings**
+   - Build command: `npm run build`
+   - Publish directory: `build`
+   - Deploy!
 
-### Products
+3. **Custom Domain (Optional)**
+   - Add your custom domain in Netlify settings
+   - Configure DNS records
 
-- Filterable product grid
-- Search functionality
-- Category-based filtering
-- Product detail modals
+### **Other Platforms**
+- **Vercel** - Alternative deployment platform
+- **GitHub Pages** - Free static hosting
+- **AWS S3** - Scalable cloud hosting
 
-### Industries
+## 📱 **Mobile Responsiveness**
 
-- Industry-specific applications
-- Visual cards with descriptions
-- Product recommendations per industry
+- **Mobile-First Design** - Optimized for mobile devices
+- **Touch-Friendly** - Easy navigation on touch screens
+- **Fast Loading** - Optimized images and code
+- **Cross-Browser** - Works on all modern browsers
 
-### Services
+## 🔧 **Customization**
 
-- Service offerings with detailed descriptions
-- Process workflow
-- Certifications and standards
+### **Adding Products**
+1. Access admin panel at `/admin/login`
+2. Use credentials: `admin` / `admin123`
+3. Add new products with images and details
+4. Products automatically appear on website
 
-### About & Vision
-
-- Company history and milestones
-- Team information
-- Core values and commitments
-- Strategic goals
-
-### Support
-
-- FAQ section with expandable answers
-- Download center for resources
-- Blog articles
-- Multiple contact methods
-
-### Contact
-
-- Contact form with validation
-- Company information
-- Interactive map placeholder
-- Quick action buttons
-
-## 🔧 API Endpoints
-
-### Products
-
-- `GET /api/products/` - List all products
-- `GET /api/products/?category=Oil` - Filter by category
-- `GET /api/products/search/?q=filter` - Search products
-
-### Industries
-
-- `GET /api/industries/` - List all industries
-
-### Services
-
-- `GET /api/services/` - List all services
-
-### Contact
-
-- `POST /api/contact-requests/` - Submit contact form
-
-### Testimonials
-
-- `GET /api/testimonials/` - List testimonials
-
-## 🗄️ Database Schema
-
-### Products Table
-
-```sql
-CREATE TABLE products (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  category ENUM('Oil','Fuel','Air','Hydraulic','Coolant','Cabin'),
-  description TEXT,
-  image_url VARCHAR(500),
-  datasheet_url VARCHAR(500),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-
-### Contact Requests Table
-
-```sql
-CREATE TABLE contact_requests (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  phone VARCHAR(50),
-  message TEXT,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-
-## 🚀 Deployment
-
-### Frontend (Netlify/Vercel)
-
-1. Build the React app: `npm run build`
-2. Deploy the `build` folder to your hosting service
-
-### Backend (Heroku/DigitalOcean)
-
-1. Set up MySQL database
-2. Configure environment variables
-3. Deploy Django application
-4. Run migrations: `python manage.py migrate`
-
-## 📈 SEO Features
-
-- Meta tags for all pages
-- Structured data markup
-- Optimized images with alt text
-- Semantic HTML structure
-- Fast loading times
-- Mobile-friendly design
-
-## 🛠️ Customization
-
-### Adding New Products
-
-1. Use Django admin interface
-2. Add product through `/admin/` panel
-3. Include high-quality images
-4. Write descriptive content
-
-### Modifying Design
-
+### **Modifying Design**
 1. Update Tailwind classes in components
 2. Modify color scheme in `tailwind.config.js`
 3. Add new components in `src/components/`
 
-### Content Management
+### **Content Management**
+- All content is easily manageable
+- No coding required for updates
+- Real-time changes on deployment
 
-- All content is manageable through Django admin
-- Easy to update text, images, and product information
-- No coding required for content updates
+## 📞 **Support & Contact**
 
-## 📞 Support
+### **Technical Support**
+- **Email**: filterskenyaltd@gmail.com
+- **Phone**: +254 720799363
+- **Location**: Lokitang Road, Off Likoni Rd, Nairobi, Kenya
 
-For technical support or questions about this website:
+### **Business Inquiries**
+- **General**: info@amazonfiltration.co.ke
+- **Sales**: sales@amazonfiltration.co.ke
+- **Support**: support@amazonfiltration.co.ke
 
-- Email: filterskenyaltd@gmail.com
-- Phone: +254 720799363
+## 📄 **License**
 
-## 📄 License
-
-This project is proprietary to Amazon Filtration (K) Ltd.
+This project is proprietary to **Amazon Filtration (K) Ltd**. All rights reserved.
 
 ---
 
-**Amazon Filtration (K) Ltd** - Reliable Filtration Solutions for Machines & Industry
+<div align="center">
+
+**Amazon Filtration (K) Ltd**  
+*Reliable Filtration Solutions for Machines & Industry*
+
+[🌐 Visit Website](https://your-website-url.com) | [📧 Contact Us](mailto:filterskenyaltd@gmail.com) | [📱 +254 720799363](tel:+254720799363)
+
+</div>
