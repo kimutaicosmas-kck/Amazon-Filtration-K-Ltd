@@ -3,6 +3,7 @@
 ## 🚀 **Deploy to Vercel (Recommended)**
 
 ### **Why Vercel?**
+
 - ✅ **Free forever** for personal projects
 - ✅ **Professional domain** (your-site.vercel.app)
 - ✅ **Automatic HTTPS** and CDN
@@ -22,12 +23,14 @@
 ### **Step 2: Upload Code to GitHub**
 
 **Option A: Using GitHub Desktop (Easiest)**
+
 1. Download GitHub Desktop
 2. Clone the repository
 3. Copy all your project files to the repository folder
 4. Commit and push to GitHub
 
 **Option B: Using Git Commands**
+
 ```bash
 # Initialize git (if not already done)
 git init
@@ -50,11 +53,13 @@ git push -u origin main
 1. **Go to Vercel**: [vercel.com](https://vercel.com)
 2. **Sign up with GitHub** (use same account)
 3. **Import Project**:
+
    - Click "New Project"
    - Select your `amazon-filtration-website` repository
    - Click "Import"
 
 4. **Configure Deployment**:
+
    - **Framework Preset**: Create React App
    - **Root Directory**: `./` (default)
    - **Build Command**: `npm run build`
@@ -66,6 +71,7 @@ git push -u origin main
 ### **Step 4: Get Your Live URL**
 
 After deployment, you'll get a URL like:
+
 - `https://amazon-filtration-website.vercel.app`
 - Or a custom domain if you set one up
 
@@ -74,16 +80,19 @@ After deployment, you'll get a URL like:
 ## 🌐 **Alternative Free Hosting Options**
 
 ### **Option 2: Netlify**
+
 - **URL**: [netlify.com](https://netlify.com)
 - **Process**: Drag & drop your `build` folder
 - **Free Domain**: `your-site.netlify.app`
 
 ### **Option 3: GitHub Pages**
+
 - **URL**: [pages.github.com](https://pages.github.com)
 - **Process**: Enable Pages in repository settings
 - **Free Domain**: `your-username.github.io/amazon-filtration-website`
 
 ### **Option 4: Firebase Hosting**
+
 - **URL**: [firebase.google.com](https://firebase.google.com)
 - **Process**: Install Firebase CLI and deploy
 - **Free Domain**: `your-project.web.app`
@@ -93,6 +102,7 @@ After deployment, you'll get a URL like:
 ## 📱 **Testing Your Live Website**
 
 ### **What to Test:**
+
 1. **All Pages Load** - Home, Products, Industries, Services, About, Contact
 2. **Images Display** - All product and category images
 3. **Contact Form** - Submit test message
@@ -102,6 +112,7 @@ After deployment, you'll get a URL like:
 7. **Navigation** - All links work correctly
 
 ### **Test Checklist:**
+
 - [ ] Homepage loads with moving images
 - [ ] Products page shows all products
 - [ ] Industries page displays industry images
@@ -118,6 +129,7 @@ After deployment, you'll get a URL like:
 ## 🔧 **Quick Deployment Commands**
 
 ### **If you have Git installed:**
+
 ```bash
 # 1. Initialize repository
 git init
@@ -135,6 +147,7 @@ git push -u origin main
 ```
 
 ### **If you don't have Git:**
+
 1. **Download GitHub Desktop**
 2. **Create repository on GitHub.com**
 3. **Clone with GitHub Desktop**
@@ -146,6 +159,7 @@ git push -u origin main
 ## 📊 **Performance Expectations**
 
 ### **Vercel Free Tier:**
+
 - **Bandwidth**: 100GB/month
 - **Build Time**: 6,000 minutes/month
 - **Function Executions**: 100GB-hours/month
@@ -153,6 +167,7 @@ git push -u origin main
 - **SSL**: Automatic HTTPS
 
 ### **For Your Website:**
+
 - **Expected Traffic**: 1,000-5,000 visitors/month
 - **Bandwidth Usage**: ~10-20GB/month
 - **Build Time**: ~2-3 minutes per deployment
@@ -163,18 +178,21 @@ git push -u origin main
 ## 🎯 **Next Steps After Deployment**
 
 ### **Immediate:**
+
 1. **Test all functionality** thoroughly
 2. **Share URL with company director**
 3. **Gather feedback** and suggestions
 4. **Take screenshots** for documentation
 
 ### **Before Going Live:**
+
 1. **Set up custom domain** (amazonfiltration.co.ke)
 2. **Configure email service** (EmailJS or backend)
 3. **Add Google Analytics** for tracking
 4. **Set up monitoring** and backups
 
 ### **Production Considerations:**
+
 1. **Upgrade to paid hosting** if needed
 2. **Implement backend database** for products
 3. **Add SSL certificate** for custom domain
@@ -185,12 +203,14 @@ git push -u origin main
 ## 🆘 **Troubleshooting**
 
 ### **Common Issues:**
+
 1. **Build fails**: Check for syntax errors in code
 2. **Images not loading**: Verify image paths are correct
 3. **Contact form not working**: Email service not configured
 4. **Admin panel not accessible**: Check URL path
 
 ### **Support:**
+
 - **Vercel Docs**: [vercel.com/docs](https://vercel.com/docs)
 - **GitHub Help**: [help.github.com](https://help.github.com)
 - **React Deployment**: [create-react-app.dev/docs/deployment](https://create-react-app.dev/docs/deployment)
