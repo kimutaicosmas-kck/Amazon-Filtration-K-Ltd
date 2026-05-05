@@ -1,0 +1,19 @@
+<svg width="180" height="60" viewBox="0 0 180 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- AF Letters with Diagonal Line -->
+  <g transform="translate(10, 5)">
+    <!-- Letter A - Bold sans-serif -->
+    <path d="M0 35 L12 5 L18 5 L30 35 L24 35 L21 27 L9 27 L6 35 Z M12 12 L18 12 L15 22 Z" fill="black" stroke="black" stroke-width="0.5"/>
+    
+    <!-- Letter F - Bold sans-serif -->
+    <path d="M35 5 L35 35 L41 35 L41 20 L50 20 L50 14 L41 14 L41 5 Z" fill="black" stroke="black" stroke-width="0.5"/>
+    <path d="M35 5 L35 11 L50 11 L50 5 Z" fill="black" stroke="black" stroke-width="0.5"/>
+    
+    <!-- Diagonal Line - Thick line cutting through both letters -->
+    <line x1="2" y1="8" x2="38" y2="32" stroke="black" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Company Name -->
+  <text x="90" y="50" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="black" letter-spacing="0.5px">
+    AMAZON FILTRATION (K) LTD
+  </text>
+</svg>

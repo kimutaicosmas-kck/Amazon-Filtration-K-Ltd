@@ -1,0 +1,29 @@
+# Ignore backend files for Vercel deployment
+backend/
+requirements.txt
+*.py
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Ignore development files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore build files (we'll build fresh)
+build/
+node_modules/
+
+# Ignore documentation files
+*.md
+!README.md
