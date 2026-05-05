@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .favicon-test {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .favicon-box {
+            background: white;
+            border: 2px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin: 10px;
+        }
+        .favicon-box img {
+            object-fit: contain;
+        }
+        .instructions {
+            background-color: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: #92400e;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #92400e;
+        }
+        .instructions ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        .test-section {
+            background-color: #dbeafe;
+            border-left: 5px solid #3b82f6;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: #1e40af;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Favicon Test - Your Original Logo</h1>
+    <p>Test different sizes of your logo for favicon display</p>
+    
+    <div class="favicon-test">
+        <div>
+            <h3>16x16 (Standard)</h3>
+            <div class="favicon-box" style="width: 16px; height: 16px;">
+                <img src="/images/logo.png" alt="Logo 16x16" style="width: 14px; height: 14px;">
+            </div>
+        </div>
+        <div>
+            <h3>32x32 (High DPI)</h3>
+            <div class="favicon-box" style="width: 32px; height: 32px;">
+                <img src="/images/logo.png" alt="Logo 32x32" style="width: 30px; height: 30px;">
+            </div>
+        </div>
+        <div>
+            <h3>48x48 (Large)</h3>
+            <div class="favicon-box" style="width: 48px; height: 48px;">
+                <img src="/images/logo.png" alt="Logo 48x48" style="width: 46px; height: 46px;">
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>Current Favicon Files:</h3>
+        <ul>
+            <li><a href="/favicon.ico" target="_blank">favicon.ico</a> (ICO format)</li>
+            <li><a href="/images/logo.png" target="_blank">logo.png</a> (PNG format)</li>
+            <li><a href="/favicon.svg" target="_blank">favicon.svg</a> (SVG format)</li>
+        </ul>
+    </div>
+
+    <div class="instructions">
+        <h3>If favicon still shows white:</h3>
+        <ul>
+            <li><strong>Hard refresh:</strong> Press Ctrl+Shift+R or Ctrl+F5</li>
+            <li><strong>Clear cache:</strong> Go to browser settings and clear cache</li>
+            <li><strong>Incognito mode:</strong> Open in private/incognito window</li>
+            <li><strong>Different browser:</strong> Try Chrome, Firefox, or Edge</li>
+            <li><strong>Wait a few minutes:</strong> Sometimes favicons take time to update</li>
+        </ul>
+    </div>
+
+    <div class="instructions">
+        <h3>Alternative Solution:</h3>
+        <ul>
+            <li>Right-click on the 32x32 logo above</li>
+            <li>Save as "favicon.ico" in the public folder</li>
+            <li>This creates a proper ICO file from your logo</li>
+        </ul>
+    </div>
+</body>
+</html>

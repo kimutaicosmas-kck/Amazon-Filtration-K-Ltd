@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Image Upload</title>
+</head>
+<body>
+    <h1>Test Image Upload to PHP Backend</h1>
+    
+    <form id="testForm">
+        <div>
+            <label>Product Name:</label>
+            <input type="text" name="name" value="Test Product" required>
+        </div>
+        
+        <div>
+            <label>Product Code:</label>
+            <input type="text" name="code" value="TEST001" required>
+        </div>
+        
+        <div>
+            <label>Category:</label>
+            <input type="text" name="category" value="Test Category" required>
+        </div>
+        
+        <div>
+            <label>Price:</label>
+            <input type="number" name="price" value="100" required>
+        </div>
+        
+        <div>
+            <label>Description:</label>
+            <textarea name="description">Test description</textarea>
+        </div>
+        
+        <div>
+            <label>Image:</label>
+            <input type="file" name="image" accept="image/*" required id="imageInput">
+            <div id="fileInfo"></div>
+        </div>
+        
+        <button type="submit">Test Upload</button>
+    </form>
+    
+    <div id="result"></div>
+    
+    <script>
+        // Add file input change listener
+        document.getElementById('imageInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                document.getElementById('fileInfo').innerHTML = 
+                    '<p>File selected: ' + file.name + ' (' + file.size + ' bytes)</p>';
+                console.log('File selected:', file);
+            } else {
+                document.getElementById('fileInfo').innerHTML = '<p>No file selected</p>';
+            }
+        });
+        
+        document.getElementById('testForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            
+            console.log('FormData contents:');
+            for (let [key, value] of formData.entries()) {
+                console.log(key, value);
+            }
+            
+            try {
+                const response = await fetch('/backend-php/api/products.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                document.getElementById('result').innerHTML = '<pre>' + JSON.stringify(result, null, 2) + '</pre>';
+                console.log('Response:', result);
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('result').innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
+            }
+        });
+    </script>
+</body>
+</html>

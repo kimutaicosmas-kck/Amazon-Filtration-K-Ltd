@@ -1,0 +1,6 @@
+# Optional: Apache — canonical manufacturing-range URLs (SPA still needs index.html fallback)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^products/?$ /manufacturing-range [R=301,L]
+  RewriteRule ^products/(.*)$ /manufacturing-range/$1 [R=301,L]
+</IfModule>

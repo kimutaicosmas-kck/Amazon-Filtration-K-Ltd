@@ -1,0 +1,12 @@
+<?php
+/**
+ * Copy to database.local.php (same folder) for local XAMPP / dev.
+ * database.local.php is ignored by git — do not deploy it to production
+ * unless you intend to override credentials on the server.
+ */
+return [
+    'host' => 'localhost',
+    'db_name' => 'amazonf1_amazon_filtration',
+    'username' => 'root',
+    'password' => '',
+];

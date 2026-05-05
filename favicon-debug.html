@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Debug - Amazon Filtration</title>
+    <link rel="icon" href="/favicon.ico?v=4" sizes="any" />
+    <link rel="icon" href="/images/logo.png?v=4" type="image/png" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+        .favicon-display {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .favicon-box {
+            background: white;
+            border: 2px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin: 10px;
+        }
+        .favicon-box img {
+            object-fit: contain;
+        }
+        .status {
+            background-color: #d1fae5;
+            border-left: 5px solid #10b981;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: #047857;
+            margin: 20px 0;
+        }
+        .instructions {
+            background-color: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: #92400e;
+            margin: 20px 0;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #92400e;
+        }
+        .instructions ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        .test-links {
+            background-color: #dbeafe;
+            border-left: 5px solid #3b82f6;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: #1e40af;
+            margin: 20px 0;
+        }
+        .test-links a {
+            color: #1e40af;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Favicon Debug Page</h1>
+    <p>This page tests if your favicon is working correctly.</p>
+    
+    <div class="status">
+        <h3>✅ Current Status</h3>
+        <p>If you can see your ORIGINAL LOGO (the second logo below) in your browser tab, the favicon is working!</p>
+        <p>The ICO favicon uses your actual company logo PNG file - this should be the one displayed in the browser tab.</p>
+    </div>
+
+    <div class="favicon-display">
+        <div>
+            <h3>ICO Favicon (32x32) - PRIMARY</h3>
+            <div class="favicon-box" style="width: 32px; height: 32px;">
+                <img src="/favicon.ico?v=4" alt="ICO Favicon" style="width: 30px; height: 30px;">
+            </div>
+        </div>
+        <div>
+            <h3>Original Logo PNG (32x32) - FALLBACK</h3>
+            <div class="favicon-box" style="width: 32px; height: 32px;">
+                <img src="/images/logo.png?v=4" alt="Original Logo" style="width: 30px; height: 30px;">
+            </div>
+        </div>
+    </div>
+
+    <div class="test-links">
+        <h3>🔗 Test Favicon Files Directly:</h3>
+        <ul>
+            <li><a href="/favicon.ico?v=4" target="_blank">ICO Favicon</a> (should show your original logo)</li>
+            <li><a href="/images/logo.png?v=4" target="_blank">Original Logo PNG</a> (should show full logo)</li>
+        </ul>
+    </div>
+
+    <div class="instructions">
+        <h3>🚨 If Favicon Still Shows White:</h3>
+        <ul>
+            <li><strong>Close ALL browser tabs</strong> and reopen</li>
+            <li><strong>Clear browser cache completely</strong> (Settings > Privacy > Clear data)</li>
+            <li><strong>Try incognito/private mode</strong></li>
+            <li><strong>Try a different browser</strong> (Chrome, Firefox, Edge)</li>
+            <li><strong>Wait 5-10 minutes</strong> - sometimes takes time to update</li>
+            <li><strong>Check if you see the AF logo in the browser tab above</strong></li>
+        </ul>
+    </div>
+
+    <div class="instructions">
+        <h3>🎯 What You Should See:</h3>
+        <ul>
+            <li><strong>In browser tab:</strong> Your ORIGINAL LOGO (the second logo above) with "AMAZON FILTRATION (K) LTD" text</li>
+            <li><strong>In bookmarks:</strong> Same original logo</li>
+            <li><strong>In address bar:</strong> Original logo (modern browsers)</li>
+            <li><strong>In search results:</strong> Original logo next to your website title</li>
+        </ul>
+    </div>
+
+    <div class="status">
+        <h3>✅ Success Indicators:</h3>
+        <p>✅ Original logo visible in browser tab</p>
+        <p>✅ Logo appears in bookmarks</p>
+        <p>✅ Logo shows in address bar</p>
+        <p>✅ Logo displays in search results</p>
+    </div>
+</body>
+</html>

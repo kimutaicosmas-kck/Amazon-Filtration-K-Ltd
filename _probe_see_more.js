@@ -1,0 +1,11 @@
+const fs = require("fs");
+const path = require("path");
+const p = path.join(__dirname, "static", "js", "main.d12675dc.js");
+const s = fs.readFileSync(p, "utf8");
+const k = "See more";
+let i = s.indexOf(k);
+console.log("idx", i);
+if (i < 0) process.exit(1);
+const slice = s.slice(Math.max(0, i - 120), i + 450);
+console.log(slice);
+fs.writeFileSync(path.join(__dirname, "_see_more_snippet.txt"), slice, "utf8");

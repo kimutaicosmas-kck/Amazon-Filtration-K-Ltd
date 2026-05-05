@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Favicon from Original Logo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .favicon-container {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .favicon-preview {
+            width: 32px;
+            height: 32px;
+            background: white;
+            border: 2px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .favicon-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .instructions {
+            background-color: #e0f2fe;
+            border-left: 5px solid #3b82f6;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: #1e40af;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #1e40af;
+        }
+        .instructions ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        .download-btn {
+            background-color: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .download-btn:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Favicon from Original Logo</h1>
+    <p>Right-click on the favicon below and save as favicon.ico</p>
+    
+    <div class="favicon-container">
+        <div>
+            <h3>32x32 Favicon</h3>
+            <div class="favicon-preview">
+                <img src="/images/logo.png" alt="Logo" style="width: 28px; height: 28px;">
+            </div>
+        </div>
+        <div>
+            <h3>16x16 Favicon</h3>
+            <div class="favicon-preview">
+                <img src="/images/logo.png" alt="Logo" style="width: 16px; height: 16px;">
+            </div>
+        </div>
+    </div>
+
+    <div class="instructions">
+        <h3>How to Create the Favicon:</h3>
+        <ul>
+            <li>Right-click on the 32x32 logo above</li>
+            <li>Select "Save image as..." from the context menu</li>
+            <li>Save it as <code>favicon.ico</code> in the <code>public/</code> folder</li>
+            <li>Make sure to replace any existing favicon.ico file</li>
+            <li>Clear your browser cache (Ctrl+F5) to see the new favicon</li>
+            <li>The favicon will then appear in browser tabs and bookmarks</li>
+        </ul>
+    </div>
+
+    <div class="instructions">
+        <h3>Alternative Method:</h3>
+        <ul>
+            <li>Open your original logo.png in an image editor</li>
+            <li>Resize it to 32x32 pixels</li>
+            <li>Save as favicon.ico in the public/ folder</li>
+            <li>This ensures the best quality and compatibility</li>
+        </ul>
+    </div>
+</body>
+</html>

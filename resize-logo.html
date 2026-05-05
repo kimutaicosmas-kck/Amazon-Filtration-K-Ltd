@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resize Logo for Favicon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .logo-container {
+            display: flex;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .logo-preview {
+            background: white;
+            border: 2px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin: 10px;
+        }
+        .logo-preview img {
+            object-fit: contain;
+        }
+        .instructions {
+            background-color: #e0f2fe;
+            border-left: 5px solid #3b82f6;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: #1e40af;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #1e40af;
+        }
+        .instructions ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        .download-section {
+            background-color: #f0fdf4;
+            border-left: 5px solid #10b981;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: #047857;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resize Original Logo for Favicon</h1>
+    <p>Right-click on any logo below and save as favicon.ico</p>
+    
+    <div class="logo-container">
+        <div>
+            <h3>32x32 (Recommended)</h3>
+            <div class="logo-preview" style="width: 32px; height: 32px;">
+                <img src="/images/logo.png" alt="Logo 32x32" style="width: 30px; height: 30px;">
+            </div>
+        </div>
+        <div>
+            <h3>24x24</h3>
+            <div class="logo-preview" style="width: 24px; height: 24px;">
+                <img src="/images/logo.png" alt="Logo 24x24" style="width: 22px; height: 22px;">
+            </div>
+        </div>
+        <div>
+            <h3>16x16</h3>
+            <div class="logo-preview" style="width: 16px; height: 16px;">
+                <img src="/images/logo.png" alt="Logo 16x16" style="width: 14px; height: 14px;">
+            </div>
+        </div>
+    </div>
+
+    <div class="download-section">
+        <h3>Quick Download Steps:</h3>
+        <ul>
+            <li>Right-click on the 32x32 logo above</li>
+            <li>Select "Save image as..."</li>
+            <li>Save as <code>favicon.ico</code> in the <code>public/</code> folder</li>
+            <li>Refresh your browser (Ctrl+F5) to see the new favicon</li>
+        </ul>
+    </div>
+
+    <div class="instructions">
+        <h3>Why the favicon might not show:</h3>
+        <ul>
+            <li>Browser cache - try Ctrl+F5 to hard refresh</li>
+            <li>Some browsers prefer .ico files over PNG</li>
+            <li>Favicon might take a few minutes to update</li>
+            <li>Try opening in an incognito/private window</li>
+        </ul>
+    </div>
+</body>
+</html>

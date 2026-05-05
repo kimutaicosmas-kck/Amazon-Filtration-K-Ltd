@@ -1,0 +1,12 @@
+backend-php/database.local.php
+backend-php/database.production.php
+
+node_modules/
+.env
+.env.*
+
+.DS_Store
+Thumbs.db
+
+# Optional: uncomment if you keep large local deploy zips in the project root
+# *.zip

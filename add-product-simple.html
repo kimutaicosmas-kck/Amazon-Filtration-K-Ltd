@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product - Amazon Filtration</title>
+    <meta name="description" content="Add new products to Amazon Filtration database">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+        .success {
+            background: #10b981;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .error {
+            background: #ef4444;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .image-preview {
+            max-width: 200px;
+            max-height: 200px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add New Product - Amazon Filtration</h1>
+        
+        <div id="message"></div>
+        
+        <form id="productForm">
+            <div class="form-group">
+                <label for="name">Product Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="code">Product Code *</label>
+                <input type="text" id="code" name="code" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="category">Category *</label>
+                <select id="category" name="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Air Filters">Air Filters</option>
+                    <option value="Fuel Filters">Fuel Filters</option>
+                    <option value="Oil Filters">Oil Filters</option>
+                    <option value="Hydraulic Return Filters">Hydraulic Return Filters</option>
+                    <option value="Coolant Filters">Coolant Filters</option>
+                    <option value="Cabin Filters">Cabin Filters</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="price">Price (KSh) *</label>
+                <input type="number" id="price" name="price" step="0.01" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="3"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="image">Product Image</label>
+                <input type="file" id="image" name="image" accept="image/*">
+                <div id="imagePreview"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="specifications">Specifications</label>
+                <textarea id="specifications" name="specifications" rows="3"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="applications">Applications</label>
+                <textarea id="applications" name="applications" rows="3"></textarea>
+            </div>
+            
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+
+    <script>
+        // Image preview
+        document.getElementById('image').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('imagePreview').innerHTML = 
+                        '<img src="' + e.target.result + '" class="image-preview" alt="Preview">';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Form submission
+        document.getElementById('productForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            try {
+                const response = await fetch('/backend-php/api/products.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    document.getElementById('message').innerHTML = 
+                        '<div class="success">Product added successfully! ID: ' + result.id + '</div>';
+                    document.getElementById('productForm').reset();
+                    document.getElementById('imagePreview').innerHTML = '';
+                } else {
+                    document.getElementById('message').innerHTML = 
+                        '<div class="error">Error: ' + result.error + '</div>';
+                }
+            } catch (error) {
+                document.getElementById('message').innerHTML = 
+                    '<div class="error">Error: ' + error.message + '</div>';
+            }
+        });
+    </script>
+</body>
+</html>

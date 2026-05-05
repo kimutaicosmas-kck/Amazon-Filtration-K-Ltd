@@ -1,0 +1,1342 @@
+/**
+ * Amazon Filtration — global dark theme (Apple-style reference)
+ * Loads after Tailwind. SF Pro unavailable on web; Inter + system UI stack.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --amazon-bg: #000000;
+  --amazon-surface: #1c1c1e;
+  --amazon-surface-2: #2c2c2e;
+  --amazon-muted: #86868b;
+  --amazon-text: #f5f5f7;
+  --amazon-accent: #2997ff;
+  --amazon-border: rgba(255, 255, 255, 0.12);
+  --amazon-gradient: linear-gradient(
+    90deg,
+    #2997ff 0%,
+    #a855f7 35%,
+    #ec4899 58%,
+    #ff6730 100%
+  );
+  /* Same stack as Products landing (Inter + system); overrides Tailwind preflight Montserrat on html */
+  --amazon-font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --amazon-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  background-color: var(--amazon-bg) !important;
+  color: var(--amazon-muted) !important;
+  font-family: var(--amazon-font-sans) !important;
+  line-height: 1.47 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root,
+#root *,
+#root *::before,
+#root *::after {
+  font-family: var(--amazon-font-sans) !important;
+}
+
+#root code,
+#root kbd,
+#root pre,
+#root samp,
+#root .font-mono {
+  font-family: var(--amazon-font-mono) !important;
+}
+
+/* ——— Surfaces (Tailwind light backgrounds → dark) ——— */
+#root .bg-white {
+  background-color: var(--amazon-surface) !important;
+}
+#root .bg-gray-50,
+#root .bg-gray-100 {
+  background-color: var(--amazon-bg) !important;
+}
+#root .bg-gray-200 {
+  background-color: var(--amazon-surface-2) !important;
+}
+#root .from-gray-50 {
+  --tw-gradient-from: #000000 var(--tw-gradient-from-position) !important;
+}
+#root .to-gray-100 {
+  --tw-gradient-to: #0a0a0a var(--tw-gradient-to-position) !important;
+}
+#root .bg-white\/95 {
+  background-color: rgba(28, 28, 30, 0.92) !important;
+}
+#root .bg-white\/90 {
+  background-color: rgba(28, 28, 30, 0.9) !important;
+}
+#root .bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+#root .bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+#root .hover\:bg-gray-50:hover,
+#root .hover\:bg-gray-100:hover {
+  background-color: var(--amazon-surface-2) !important;
+}
+#root .hover\:bg-white:hover {
+  background-color: #f5f5f7 !important;
+  color: #000000 !important;
+}
+
+/* Solid “pill” CTAs only (not card links that reuse bg-white) */
+#root a.bg-white.text-primary-600,
+#root button.bg-white {
+  background-color: #f5f5f7 !important;
+  color: #000000 !important;
+}
+#root a.bg-white.text-primary-600:hover,
+#root button.bg-white:hover {
+  background-color: #ffffff !important;
+}
+
+/* ——— Typography ——— */
+#root .text-gray-900,
+#root .text-gray-800 {
+  color: var(--amazon-text) !important;
+}
+#root .text-gray-700 {
+  color: #a1a1a6 !important;
+}
+#root .text-gray-600,
+#root .text-gray-500 {
+  color: var(--amazon-muted) !important;
+}
+#root .text-gray-400 {
+  color: #636366 !important;
+}
+#root .text-gray-300 {
+  color: #aeaeb2 !important;
+}
+#root .text-blue-900,
+#root .text-blue-800 {
+  color: #e8f0ff !important;
+}
+#root .text-blue-700,
+#root .text-blue-600 {
+  color: var(--amazon-accent) !important;
+}
+#root .text-primary-600,
+#root .text-primary-700 {
+  color: var(--amazon-accent) !important;
+}
+#root .hover\:text-primary-600:hover,
+#root .hover\:text-primary-700:hover {
+  color: #5ac8fa !important;
+}
+#root .hover\:text-gray-800:hover,
+#root .hover\:text-gray-900:hover {
+  color: var(--amazon-text) !important;
+}
+#root .hover\:text-gray-600:hover {
+  color: #a1a1a6 !important;
+}
+
+/* ——— Borders & dividers ——— */
+#root .border-gray-100,
+#root .border-gray-200,
+#root .border-gray-300 {
+  border-color: var(--amazon-border) !important;
+}
+#root .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--amazon-border) !important;
+}
+#root .ring-gray-100 {
+  --tw-ring-color: rgba(255, 255, 255, 0.08) !important;
+}
+#root .ring-primary-100 {
+  --tw-ring-color: rgba(41, 151, 255, 0.25) !important;
+}
+
+/* ——— Nav (works with shipped bundle + future builds) ——— */
+#root nav {
+  background-color: #ffffff !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  box-shadow: none !important;
+}
+#root nav.amazon-nav-scrolled {
+  background-color: #ffffff !important;
+}
+
+/* Keep logo area white and separated */
+#root nav .cursor-pointer {
+  background-color: #ffffff !important;
+  border-radius: 0.5rem !important;
+  padding: 0.25rem 0.5rem !important;
+}
+
+/* Nav text colors for white header */
+#root nav .text-gray-300 {
+  color: #111827 !important;
+}
+#root nav .hover\:text-white:hover {
+  color: #2563eb !important;
+}
+#root nav a.text-white {
+  color: #1e3a8a !important;
+}
+
+/* Preserve original logo colors to avoid washed-out/blank white rendering */
+#root nav img[alt='Amazon Filtration (K) Ltd Logo'] {
+  filter: none !important;
+}
+
+/* ——— Primary / accent fills (buttons, badges, small UI) ——— */
+#root a.bg-primary-600,
+#root button.bg-primary-600,
+#root span.bg-primary-600,
+#root .bg-primary-500 {
+  background-color: var(--amazon-accent) !important;
+}
+#root .hover\:bg-primary-500:hover,
+#root .hover\:bg-primary-600:hover,
+#root .hover\:bg-primary-700:hover {
+  background-color: #5ac8fa !important;
+}
+#root .bg-primary-50,
+#root .bg-primary-100 {
+  background-color: rgba(41, 151, 255, 0.12) !important;
+}
+#root .border-primary-600 {
+  border-color: var(--amazon-accent) !important;
+}
+
+/* Full-width marketing bands (was solid blue) → dark + subtle color */
+#root section.bg-primary-600,
+#root div.bg-primary-600.py-12,
+#root div.bg-primary-600.py-16 {
+  background: linear-gradient(
+    165deg,
+    #0a0a0c 0%,
+    #12101a 40%,
+    #0d0d12 100%
+  ) !important;
+  border-top: 1px solid var(--amazon-border);
+  border-bottom: 1px solid var(--amazon-border);
+}
+#root section.bg-primary-600 .text-primary-100,
+#root div.bg-primary-600 .text-primary-100 {
+  color: var(--amazon-muted) !important;
+}
+
+/* ——— Buttons (utility classes) ——— */
+#root .btn-primary {
+  background: var(--amazon-accent) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 24px rgba(41, 151, 255, 0.25) !important;
+}
+#root .btn-primary:hover {
+  background: #5ac8fa !important;
+}
+#root .btn-outline {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  color: var(--amazon-text) !important;
+}
+#root .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+#root .btn-secondary {
+  background: var(--amazon-surface-2) !important;
+  color: var(--amazon-text) !important;
+}
+
+/* ——— Hero gradient headline (existing Tailwind clip-text) ——— */
+#root section.min-h-screen .bg-clip-text.bg-gradient-to-r {
+  background-image: var(--amazon-gradient) !important;
+}
+#root section.min-h-screen .text-slate-200 {
+  color: var(--amazon-text) !important;
+}
+#root section.min-h-screen .text-slate-300 {
+  color: var(--amazon-muted) !important;
+}
+
+/* ——— Cards / shadows ——— */
+#root .shadow-lg,
+#root .shadow-xl,
+#root .shadow-md {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55) !important;
+}
+#root .card-modern {
+  background: rgba(28, 28, 30, 0.95) !important;
+  border-color: var(--amazon-border) !important;
+}
+
+/* ——— Forms ——— */
+#root input[type="text"],
+#root input[type="email"],
+#root input[type="password"],
+#root input[type="number"],
+#root input[type="search"],
+#root input[type="tel"],
+#root input[type="url"],
+#root textarea,
+#root select {
+  background-color: var(--amazon-surface) !important;
+  color: var(--amazon-text) !important;
+  border-color: var(--amazon-border) !important;
+}
+#root input::placeholder,
+#root textarea::placeholder {
+  color: #636366 !important;
+}
+#root .form-modern input,
+#root .form-modern select,
+#root .form-modern textarea {
+  background: var(--amazon-surface) !important;
+  border-color: var(--amazon-border) !important;
+  color: var(--amazon-text) !important;
+}
+#root .form-modern input:focus,
+#root .form-modern select:focus,
+#root .form-modern textarea:focus {
+  background: #000 !important;
+  border-color: var(--amazon-accent) !important;
+}
+
+/* ——— Tables (admin) ——— */
+#root thead.bg-gray-50,
+#root tr.hover\:bg-gray-50:hover {
+  background-color: var(--amazon-surface) !important;
+}
+#root .bg-red-50,
+#root .bg-green-100,
+#root .bg-yellow-100,
+#root .bg-blue-50 {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* ——— Footer ——— */
+#root footer.bg-industrial-900 {
+  background-color: #000000 !important;
+  border-top: 1px solid var(--amazon-border);
+}
+
+/* ——— Industrial / slate blocks ——— */
+#root .bg-industrial-900 {
+  background-color: #000000 !important;
+}
+#root .bg-industrial-600 {
+  background-color: var(--amazon-surface-2) !important;
+}
+
+/* ——— Scrollbar ——— */
+::-webkit-scrollbar-track {
+  background: #0a0a0a !important;
+}
+::-webkit-scrollbar-thumb {
+  background: #424245 !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #636366 !important;
+}
+
+/* ——— Home / marketing (works without new Tailwind arbitrary utilities) ——— */
+.amazon-hero-title-gradient {
+  background-image: var(--amazon-gradient) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+.amazon-surface-card {
+  background-color: var(--amazon-surface) !important;
+  border: 1px solid var(--amazon-border) !important;
+}
+.amazon-surface-card:hover {
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+.amazon-bg-elevated {
+  background-color: #0a0a0a !important;
+}
+.amazon-btn-hero-primary {
+  background-color: var(--amazon-accent) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 24px rgba(41, 151, 255, 0.35) !important;
+  clip-path: polygon(16px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 16px) !important;
+  border-radius: 0 !important;
+}
+.amazon-btn-hero-primary:hover {
+  background-color: #5ac8fa !important;
+}
+.amazon-btn-hero-outline {
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+  background: transparent !important;
+  clip-path: polygon(16px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 16px) !important;
+  border-radius: 0 !important;
+}
+.amazon-btn-hero-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+.amazon-cta-section {
+  background: linear-gradient(to bottom, #0a0a0c, #12101a, #0a0a0c) !important;
+  border-top: 1px solid var(--amazon-border);
+  border-bottom: 1px solid var(--amazon-border);
+}
+.amazon-border-t-subtle {
+  border-top: 1px solid var(--amazon-border) !important;
+}
+.amazon-text-muted {
+  color: var(--amazon-muted) !important;
+}
+.amazon-text-accent {
+  color: var(--amazon-accent) !important;
+}
+.amazon-gradient-text {
+  background: var(--amazon-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+/* Home — “Built for industry partners” split rail + visual (layout only) */
+.amazon-industry-layout {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 1024px) {
+  .amazon-industry-layout {
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
+    align-items: stretch;
+  }
+}
+.amazon-industry-visual {
+  position: relative;
+  width: 100%;
+  min-height: 260px;
+  overflow: hidden;
+}
+
+/* Keep left rail colors consistent across global theme remaps */
+#root .amazon-home-page .amazon-industry-rail {
+  background-color: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+}
+
+#root .amazon-home-page .amazon-industry-tab {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+#root .amazon-home-page .amazon-industry-tab:hover {
+  color: #2563eb !important;
+}
+
+#root .amazon-home-page .amazon-industry-tab.is-active {
+  color: #1e3a8a !important;
+}
+
+/* Fallback for currently deployed minified bundle (no amazon-industry-* classes yet) */
+#root .amazon-home-page .amazon-industry-layout nav[aria-label="Industry focus"] {
+  background-color: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0.75rem !important;
+  padding: 0.5rem !important;
+}
+
+#root .amazon-home-page .amazon-industry-layout nav[aria-label="Industry focus"] button {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+#root .amazon-home-page .amazon-industry-layout nav[aria-label="Industry focus"] button:hover {
+  color: #2563eb !important;
+}
+
+#root .amazon-home-page .amazon-industry-layout nav[aria-label="Industry focus"] button.font-semibold {
+  color: #1e3a8a !important;
+}
+@media (min-width: 640px) {
+  .amazon-industry-visual {
+    min-height: 360px;
+  }
+}
+@media (min-width: 1024px) {
+  .amazon-industry-visual {
+    min-height: 420px;
+  }
+}
+
+/* Persisted browser-preview overrides for ABB-style injected section */
+div.abb-wrap {
+  color: var(--amazon-bg) !important;
+  background-color: rgba(0, 0, 0, 1) !important;
+  border: none !important;
+}
+
+/* Homepage sections that still used bg-white (remapped to surface) — force true black when needed */
+section.py-12.md\:py-16.bg-white,
+section.py-12.md\:py-20.bg-white {
+  background-color: rgba(0, 0, 0, 1) !important;
+  background: rgba(0, 0, 0, 1) !important;
+}
+
+/* Clear absolute offsets from caption if it exists */
+p.abb-caption {
+  left: auto !important;
+  top: auto !important;
+}
+
+/* ——— Headings scale (reference ~48–60px hero) ——— */
+#root h1 {
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+#root h2 {
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: var(--amazon-text);
+}
+
+/* Products page — #filter-lines: h3 inherits #root muted grey; h2 uses soft off-white.
+   Force true white headings (beats #root h2 and inheritance). */
+/* Products page — make filter lines section light with dark copy */
+#root #products-evolu-landing #filter-lines {
+  background-color: #ffffff !important;
+}
+#root #products-evolu-landing #filter-lines h2,
+#root #products-evolu-landing #filter-lines h3,
+#root #products-evolu-landing #filter-lines .pl-text-ink {
+  color: #111827 !important;
+}
+#root #products-evolu-landing #filter-lines .pl-text-sub,
+#root #products-evolu-landing #filter-lines .pl-line-body,
+#root #products-evolu-landing #filter-lines .pl-line-body span,
+#root #products-evolu-landing #filter-lines .text-white,
+#root #products-evolu-landing #filter-lines .text-white\/80,
+#root #products-evolu-landing #filter-lines .text-white\/70 {
+  color: #374151 !important;
+}
+
+/* Remove legacy "Smart engineering" dark card block from shipped bundle */
+#root #products-evolu-landing .pl-card-dark {
+  display: none !important;
+}
+
+/* Product line catalogue — fixed card width (prebuilt Tailwind bundle may not include w-64 / sm:w-72) */
+.amazon-product-line-card {
+  box-sizing: border-box;
+  width: 16rem; /* 256px — Tailwind w-64 */
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .amazon-product-line-card {
+    width: 18rem; /* 288px — Tailwind sm:w-72 */
+  }
+}
+
+/* Uniform card height: image area locked to 4:3 (img cannot stretch the box) */
+.amazon-product-line-card .amazon-pl-card-media {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #09090b;
+}
+
+.amazon-product-line-card .amazon-pl-card-media .amazon-pl-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* List view: thumbnail column on sm+ */
+@media (min-width: 640px) {
+  .amazon-product-line-card.amazon-pl-card--list .amazon-pl-card-media {
+    width: 6rem;
+    min-width: 6rem;
+    max-width: 40%;
+    align-self: flex-start;
+  }
+}
+
+/* Body grows to fill row-stretched card; description band keeps consistent min height */
+.amazon-product-line-card .amazon-pl-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.amazon-product-line-card .amazon-pl-card-desc-slot {
+  flex: 1 1 auto;
+  min-height: 3rem; /* ~2 short lines + read more */
+}
+
+/* Product line route — true white page (do not use Tailwind bg-white here; #root remaps it to dark) */
+#root .amazon-product-line-page {
+  background-color: #ffffff !important;
+  color: #52525b !important;
+}
+
+/* Floating glass filter sidebar */
+#root .amazon-product-line-page .amazon-pl-filter-panel {
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.78) !important;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 10px 28px -4px rgba(15, 23, 42, 0.11),
+    0 26px 52px -16px rgba(15, 23, 42, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease !important;
+}
+
+#root .amazon-product-line-page .amazon-pl-filter-panel:hover {
+  transform: translateY(-2px);
+  border-color: rgba(14, 165, 233, 0.38) !important;
+  box-shadow:
+    0 2px 6px rgba(15, 23, 42, 0.06),
+    0 16px 36px -8px rgba(15, 23, 42, 0.13),
+    0 34px 68px -18px rgba(14, 165, 233, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+/* Floating glass product cards */
+#root .amazon-product-line-page .amazon-product-line-card {
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.78) !important;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 8px 24px -4px rgba(15, 23, 42, 0.1),
+    0 22px 48px -14px rgba(15, 23, 42, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease !important;
+}
+
+#root .amazon-product-line-page .amazon-product-line-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(14, 165, 233, 0.45) !important;
+  box-shadow:
+    0 2px 6px rgba(15, 23, 42, 0.06),
+    0 14px 32px -8px rgba(15, 23, 42, 0.12),
+    0 32px 64px -18px rgba(14, 165, 233, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #root .amazon-product-line-page .amazon-product-line-card,
+  #root .amazon-product-line-page .amazon-product-line-card:hover,
+  #root .amazon-product-line-page .amazon-pl-filter-panel,
+  #root .amazon-product-line-page .amazon-pl-filter-panel:hover {
+    transform: none !important;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
+  }
+}
+
+#root .amazon-product-line-page .amazon-pl-card-media {
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.92), rgba(241, 245, 249, 0.88)) !important;
+}
+
+/* Restore Tailwind `bg-white` inside this page only (#root normally remaps .bg-white to dark) */
+#root .amazon-product-line-page .bg-white {
+  background-color: #ffffff !important;
+}
+
+/* ——— Product detail (white commerce layout; blue replaces former red accents) ——— */
+#root .amazon-product-detail-page {
+  background-color: #ffffff !important;
+  color: #18181b !important;
+}
+
+#root .amazon-product-detail-page .bg-white {
+  background-color: #ffffff !important;
+}
+
+#root .amazon-product-detail-page .bg-gray-50 {
+  background-color: #f9fafb !important;
+}
+
+#root .amazon-product-detail-page .text-gray-900,
+#root .amazon-product-detail-page .text-black {
+  color: #111827 !important;
+}
+
+#root .amazon-product-detail-page .text-gray-800 {
+  color: #1f2937 !important;
+}
+
+#root .amazon-product-detail-page .text-gray-700 {
+  color: #374151 !important;
+}
+
+#root .amazon-product-detail-page .text-gray-600 {
+  color: #4b5563 !important;
+}
+
+#root .amazon-product-detail-page h1,
+#root .amazon-product-detail-page h2 {
+  color: #000000 !important;
+}
+
+#root .amazon-product-detail-page .amazon-pd-qty {
+  background-color: #f3f4f6 !important;
+  border-color: #d1d5db !important;
+  color: #111827 !important;
+}
+
+#root .amazon-product-detail-page .amazon-pd-btn-primary {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  border-radius: 2px;
+}
+
+#root .amazon-product-detail-page .amazon-pd-btn-primary:hover {
+  background-color: #1d4ed8 !important;
+}
+
+#root .amazon-product-detail-page .amazon-pd-btn-wa {
+  background-color: #16a34a !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  border-radius: 2px;
+}
+
+#root .amazon-product-detail-page .amazon-pd-btn-wa:hover {
+  background-color: #15803d !important;
+}
+
+#root .amazon-product-detail-page .amazon-pd-social {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 2.25rem !important;
+  height: 2.25rem !important;
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+#root .amazon-product-detail-page .amazon-pd-social:hover {
+  background-color: #1d4ed8 !important;
+}
+
+#root .amazon-product-detail-page .amazon-pd-accent {
+  color: #2563eb !important;
+}
+
+#root .amazon-product-detail-page .amazon-pd-image-wrap {
+  min-height: 17rem;
+}
+
+@media (min-width: 640px) {
+  #root .amazon-product-detail-page .amazon-pd-image-wrap {
+    min-height: 20rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  #root .amazon-product-detail-page .amazon-pd-image-wrap {
+    min-height: 24rem;
+  }
+}
+
+#root .amazon-product-detail-page .amazon-pd-hero-img {
+  max-height: min(72vh, 520px);
+}
+
+#root .amazon-product-detail-page .amazon-pd-main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  #root .amazon-product-detail-page .amazon-pd-main-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3rem 4rem;
+  }
+}
+
+#root .amazon-product-detail-page .amazon-pd-related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  #root .amazon-product-detail-page .amazon-pd-related-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ——— Homepage (light) ——— */
+#root .amazon-home-page {
+  background-color: #ffffff !important;
+  color: #3f3f46 !important;
+}
+
+#root .amazon-home-page .amazon-home-hero {
+  background-color: #ffffff !important;
+}
+
+@media (max-width: 767px) {
+  /* Ensure full-width white wash on mobile hero for grey copy readability */
+  #root .amazon-home-page .amazon-home-hero .amazon-home-hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.72) 34%,
+      rgba(255, 255, 255, 0.66) 68%,
+      rgba(255, 255, 255, 0.72) 100%
+    ) !important;
+  }
+}
+
+#root .amazon-home-page .amazon-home-section {
+  background-color: #ffffff !important;
+}
+
+#root .amazon-home-page .amazon-text-muted {
+  color: #52525b !important;
+}
+
+#root .amazon-home-page .amazon-border-t-subtle {
+  border-top-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+#root .amazon-home-page .amazon-btn-hero-outline {
+  border: 1px solid rgba(15, 23, 42, 0.22) !important;
+  color: #18181b !important;
+  background: rgba(255, 255, 255, 0.65) !important;
+}
+
+#root .amazon-home-page .amazon-btn-hero-outline:hover {
+  background-color: rgba(15, 23, 42, 0.06) !important;
+  border-color: rgba(15, 23, 42, 0.3) !important;
+}
+
+/* Beat global #root gray remaps on the light homepage */
+#root .amazon-home-page .text-gray-900,
+#root .amazon-home-page .text-gray-800 {
+  color: #18181b !important;
+}
+
+#root .amazon-home-page .text-gray-600,
+#root .amazon-home-page .text-gray-500 {
+  color: #52525b !important;
+}
+
+#root .amazon-home-page .amazon-home-wave {
+  background-color: #ffffff !important;
+}
+
+/* Hero H1: true black + classic blue for “Your” (beats global .text-blue-600 accent remap) */
+#root .amazon-home-page .amazon-home-hero h1.text-black,
+#root .amazon-home-page .amazon-home-hero h1 .text-black {
+  color: #000000 !important;
+}
+
+#root .amazon-home-page .amazon-home-hero h1 .text-blue-600 {
+  color: #2563eb !important;
+}
+
+/* Hero: “Trusted Supplier” — red → blue gradient text */
+#root .amazon-home-page .amazon-home-hero h1 .amazon-hero-trusted-gradient {
+  background-image: linear-gradient(105deg, #dc2626 0%, #b91c1c 22%, #2563eb 78%, #1d4ed8 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+/* Homepage features — beat #root h2 light colour */
+#root .amazon-home-page h2.text-black,
+#root .amazon-home-page h2.text-zinc-900,
+#root .amazon-home-page h3.text-zinc-900 {
+  color: #000000 !important;
+}
+
+/* ——— Light marketing pages: Industries, Contact, About ———
+   Scope A: page wrapper classes from source / rebuilt bundle.
+   Scope B: body.amazon-route-* #root main > div — works when main.js is stale. */
+#root .amazon-industries-page,
+#root .amazon-contact-page,
+#root .amazon-about-page,
+body.amazon-route-industries #root main,
+body.amazon-route-contact #root main,
+body.amazon-route-about #root main {
+  background-color: #ffffff !important;
+}
+
+#root .amazon-industries-page,
+#root .amazon-contact-page,
+#root .amazon-about-page,
+body.amazon-route-industries #root main > div,
+body.amazon-route-contact #root main > div,
+body.amazon-route-about #root main > div {
+  background-color: #ffffff !important;
+  color: #3f3f46 !important;
+}
+
+#root .amazon-industries-page .bg-white,
+#root .amazon-contact-page .bg-white,
+#root .amazon-about-page .bg-white,
+body.amazon-route-industries #root main > div .bg-white,
+body.amazon-route-contact #root main > div .bg-white,
+body.amazon-route-about #root main > div .bg-white {
+  background-color: #ffffff !important;
+}
+
+#root .amazon-industries-page .text-gray-900,
+#root .amazon-industries-page .text-gray-800,
+#root .amazon-contact-page .text-gray-900,
+#root .amazon-contact-page .text-gray-800,
+#root .amazon-about-page .text-zinc-900,
+body.amazon-route-industries #root main > div .text-gray-900,
+body.amazon-route-industries #root main > div .text-gray-800,
+body.amazon-route-contact #root main > div .text-gray-900,
+body.amazon-route-contact #root main > div .text-gray-800,
+body.amazon-route-about #root main > div .text-zinc-900,
+body.amazon-route-about #root main > div .text-gray-900,
+body.amazon-route-about #root main > div .text-gray-800 {
+  color: #3f3f46 !important;
+}
+
+#root .amazon-industries-page .text-gray-600,
+#root .amazon-industries-page .text-gray-500,
+#root .amazon-contact-page .text-gray-600,
+#root .amazon-contact-page .text-gray-500,
+body.amazon-route-industries #root main > div .text-gray-600,
+body.amazon-route-industries #root main > div .text-gray-500,
+body.amazon-route-contact #root main > div .text-gray-600,
+body.amazon-route-contact #root main > div .text-gray-500,
+body.amazon-route-about #root main > div .text-gray-600,
+body.amazon-route-about #root main > div .text-gray-500 {
+  color: #52525b !important;
+}
+
+#root .amazon-industries-page .text-gray-700,
+#root .amazon-contact-page .text-gray-700,
+body.amazon-route-industries #root main > div .text-gray-700,
+body.amazon-route-contact #root main > div .text-gray-700,
+body.amazon-route-about #root main > div .text-gray-700 {
+  color: #3f3f46 !important;
+}
+
+/* Contact page: darken secondary copy + heading text */
+#root .amazon-contact-page .text-gray-600,
+#root .amazon-contact-page .text-gray-500,
+#root .amazon-contact-page .text-gray-400,
+body.amazon-route-contact #root main > div .text-gray-600,
+body.amazon-route-contact #root main > div .text-gray-500,
+body.amazon-route-contact #root main > div .text-gray-400 {
+  color: #3f3f46 !important;
+}
+
+#root .amazon-contact-page h1.text-black,
+#root .amazon-contact-page h2.text-black,
+#root .amazon-contact-page h3.text-black,
+body.amazon-route-contact #root main > div h1.text-black,
+body.amazon-route-contact #root main > div h2.text-black,
+body.amazon-route-contact #root main > div h3.text-black {
+  color: #000000 !important;
+}
+
+/* Beat #root h2 { color: … } on coloured bands */
+#root .amazon-industries-page .text-white,
+#root .amazon-contact-page .text-white,
+#root .amazon-about-page .text-white,
+body.amazon-route-industries #root main > div .text-white,
+body.amazon-route-contact #root main > div .text-white,
+body.amazon-route-about #root main > div .text-white {
+  color: #ffffff !important;
+}
+
+#root .amazon-industries-page .bg-primary-100,
+#root .amazon-contact-page .bg-primary-100,
+#root .amazon-about-page .bg-primary-100,
+body.amazon-route-industries #root main > div .bg-primary-100,
+body.amazon-route-contact #root main > div .bg-primary-100,
+body.amazon-route-about #root main > div .bg-primary-100 {
+  background-color: #dbeafe !important;
+}
+
+#root .amazon-industries-page .text-primary-600,
+#root .amazon-contact-page .text-primary-600,
+#root .amazon-about-page .text-primary-600,
+body.amazon-route-industries #root main > div .text-primary-600,
+body.amazon-route-contact #root main > div .text-primary-600,
+body.amazon-route-about #root main > div .text-primary-600 {
+  color: #2563eb !important;
+}
+
+#root .amazon-industries-page .bg-primary-600,
+#root .amazon-contact-page .bg-primary-600,
+#root .amazon-about-page .bg-primary-600,
+body.amazon-route-industries #root main > div .bg-primary-600,
+body.amazon-route-contact #root main > div .bg-primary-600,
+body.amazon-route-about #root main > div .bg-primary-600 {
+  background-color: #2563eb !important;
+  background-image: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+#root .amazon-industries-page .bg-primary-600 .text-primary-100,
+#root .amazon-contact-page .bg-primary-600 .text-primary-100,
+#root .amazon-about-page .bg-primary-600 .text-primary-100,
+body.amazon-route-industries #root main > div .bg-primary-600 .text-primary-100,
+body.amazon-route-contact #root main > div .bg-primary-600 .text-primary-100,
+body.amazon-route-about #root main > div .bg-primary-600 .text-primary-100 {
+  color: #dbeafe !important;
+}
+
+#root .amazon-industries-page .btn-outline,
+#root .amazon-contact-page .btn-outline,
+#root .amazon-about-page .btn-outline,
+body.amazon-route-industries #root main > div .btn-outline,
+body.amazon-route-contact #root main > div .btn-outline,
+body.amazon-route-about #root main > div .btn-outline {
+  border-color: rgba(15, 23, 42, 0.22) !important;
+  color: #18181b !important;
+}
+
+#root .amazon-industries-page .btn-outline:hover,
+#root .amazon-contact-page .btn-outline:hover,
+#root .amazon-about-page .btn-outline:hover,
+body.amazon-route-industries #root main > div .btn-outline:hover,
+body.amazon-route-contact #root main > div .btn-outline:hover,
+body.amazon-route-about #root main > div .btn-outline:hover {
+  background-color: rgba(15, 23, 42, 0.06) !important;
+  color: #0a0a0a !important;
+  border-color: rgba(15, 23, 42, 0.35) !important;
+}
+
+#root .amazon-industries-page .shadow-lg,
+#root .amazon-industries-page .shadow-xl,
+#root .amazon-contact-page .shadow-lg,
+#root .amazon-contact-page .shadow-xl,
+#root .amazon-about-page .shadow-lg,
+#root .amazon-about-page .shadow-xl,
+body.amazon-route-industries #root main > div .shadow-lg,
+body.amazon-route-industries #root main > div .shadow-xl,
+body.amazon-route-contact #root main > div .shadow-lg,
+body.amazon-route-contact #root main > div .shadow-xl,
+body.amazon-route-about #root main > div .shadow-lg,
+body.amazon-route-about #root main > div .shadow-xl {
+  box-shadow:
+    0 10px 15px -3px rgba(15, 23, 42, 0.08),
+    0 4px 6px -2px rgba(15, 23, 42, 0.04) !important;
+}
+
+#root .amazon-industries-page .hover\:bg-gray-100:hover,
+#root .amazon-contact-page .hover\:bg-gray-100:hover,
+#root .amazon-about-page .hover\:bg-gray-100:hover,
+body.amazon-route-industries #root main > div .hover\:bg-gray-100:hover,
+body.amazon-route-contact #root main > div .hover\:bg-gray-100:hover,
+body.amazon-route-about #root main > div .hover\:bg-gray-100:hover {
+  background-color: #f3f4f6 !important;
+}
+
+/* Contact — form fields (global #root input is dark) */
+#root .amazon-contact-page input[type="text"],
+#root .amazon-contact-page input[type="email"],
+#root .amazon-contact-page input[type="password"],
+#root .amazon-contact-page input[type="number"],
+#root .amazon-contact-page input[type="search"],
+#root .amazon-contact-page input[type="tel"],
+#root .amazon-contact-page input[type="url"],
+#root .amazon-contact-page textarea,
+#root .amazon-contact-page select,
+body.amazon-route-contact #root main > div input[type="text"],
+body.amazon-route-contact #root main > div input[type="email"],
+body.amazon-route-contact #root main > div input[type="password"],
+body.amazon-route-contact #root main > div input[type="number"],
+body.amazon-route-contact #root main > div input[type="search"],
+body.amazon-route-contact #root main > div input[type="tel"],
+body.amazon-route-contact #root main > div input[type="url"],
+body.amazon-route-contact #root main > div textarea,
+body.amazon-route-contact #root main > div select {
+  background-color: #ffffff !important;
+  color: #18181b !important;
+  border-color: #d4d4d8 !important;
+}
+
+#root .amazon-contact-page input::placeholder,
+#root .amazon-contact-page textarea::placeholder,
+body.amazon-route-contact #root main > div input::placeholder,
+body.amazon-route-contact #root main > div textarea::placeholder {
+  color: #71717a !important;
+}
+
+#root .amazon-contact-page .border-gray-200,
+body.amazon-route-contact #root main > div .border-gray-200 {
+  border-color: #e4e4e7 !important;
+}
+
+#root .amazon-contact-page .border-gray-300,
+body.amazon-route-contact #root main > div .border-gray-300 {
+  border-color: #d4d4d8 !important;
+}
+
+#root .amazon-contact-page .hover\:bg-primary-50:hover,
+body.amazon-route-contact #root main > div .hover\:bg-primary-50:hover {
+  background-color: #eff6ff !important;
+}
+
+#root .amazon-contact-page .hover\:border-primary-300:hover,
+body.amazon-route-contact #root main > div .hover\:border-primary-300:hover {
+  border-color: #93c5fd !important;
+}
+
+#root .amazon-contact-page .bg-green-100,
+body.amazon-route-contact #root main > div .bg-green-100 {
+  background-color: #dcfce7 !important;
+}
+
+#root .amazon-contact-page .text-green-600,
+body.amazon-route-contact #root main > div .text-green-600 {
+  color: #16a34a !important;
+}
+
+#root .amazon-contact-page .bg-red-50,
+body.amazon-route-contact #root main > div .bg-red-50 {
+  background-color: #fef2f2 !important;
+}
+
+#root .amazon-contact-page .border-red-200,
+body.amazon-route-contact #root main > div .border-red-200 {
+  border-color: #fecaca !important;
+}
+
+#root .amazon-contact-page .text-red-400,
+body.amazon-route-contact #root main > div .text-red-400 {
+  color: #f87171 !important;
+}
+
+#root .amazon-contact-page .text-red-700,
+body.amazon-route-contact #root main > div .text-red-700 {
+  color: #b91c1c !important;
+}
+
+#root .amazon-contact-page .text-red-800,
+body.amazon-route-contact #root main > div .text-red-800 {
+  color: #991b1b !important;
+}
+
+#root .amazon-contact-page .text-green-100,
+body.amazon-route-contact #root main > div .text-green-100 {
+  color: #dcfce7 !important;
+}
+
+/* Contact — Hiya-style purple links (Tailwind violet not in prebuilt bundle) */
+#root .amazon-contact-hiya .amazon-hiya-link,
+body.amazon-route-contact #root main > div.amazon-contact-hiya .amazon-hiya-link {
+  color: #6b46c1 !important;
+}
+
+#root .amazon-contact-hiya .amazon-hiya-link:hover,
+body.amazon-route-contact #root main > div.amazon-contact-hiya .amazon-hiya-link:hover {
+  color: #553c9a !important;
+}
+
+/* Contact — two-column layout (prebuilt Tailwind bundle omits arbitrary grid templates) */
+#root .amazon-contact-hiya .amazon-contact-inner,
+body.amazon-route-contact #root main > div.amazon-contact-hiya .amazon-contact-inner {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#root .amazon-contact-hiya .amazon-contact-layout,
+body.amazon-route-contact #root main > div.amazon-contact-hiya .amazon-contact-layout {
+  display: grid;
+  width: 100%;
+  gap: 3rem;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  #root .amazon-contact-hiya .amazon-contact-layout,
+  body.amazon-route-contact #root main > div.amazon-contact-hiya .amazon-contact-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+    column-gap: clamp(2.5rem, 5vw, 4.5rem);
+    row-gap: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  #root .amazon-contact-hiya .amazon-contact-layout,
+  body.amazon-route-contact #root main > div.amazon-contact-hiya .amazon-contact-layout {
+    grid-template-columns: minmax(0, 1fr) 340px;
+  }
+}
+
+#root .amazon-contact-hiya .amazon-contact-main,
+body.amazon-route-contact #root main > div.amazon-contact-hiya .amazon-contact-main {
+  min-width: 0;
+}
+
+/* Contact page - screenshot style (left copy + right dark panel + white form card) */
+#root .amazon-contact-page.amazon-contact-sales {
+  background: #ffffff !important;
+  color: #1f2937 !important;
+}
+
+#root .amazon-contact-page .amazon-contact-sales-wrap {
+  position: relative;
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 62%, #003b59 62%, #003b59 100%);
+  border-bottom-right-radius: 2.5rem;
+  overflow: hidden;
+}
+
+#root .amazon-contact-page .amazon-contact-sales-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 3.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+#root .amazon-contact-page .amazon-contact-sales-left {
+  max-width: 24rem;
+  padding-top: 1.5rem;
+}
+
+#root .amazon-contact-page .amazon-contact-kicker {
+  margin: 0 0 0.5rem;
+  color: #ef4444 !important;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+#root .amazon-contact-page .amazon-contact-title {
+  margin: 0 0 0.85rem;
+  color: #111827 !important;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.05;
+  font-weight: 700;
+}
+
+#root .amazon-contact-page .amazon-contact-copy {
+  margin: 0 0 0.65rem;
+  color: #4b5563 !important;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+#root .amazon-contact-page .amazon-contact-callout {
+  margin-top: 1.75rem;
+  padding: 1.25rem;
+  background-color: #ffffff;
+  border: 1px solid #f1f5f9;
+}
+
+#root .amazon-contact-page .amazon-contact-callout-label {
+  margin: 0 0 0.25rem;
+  color: #1f2937 !important;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#root .amazon-contact-page .amazon-contact-callout-link {
+  color: #ef4444 !important;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+#root .amazon-contact-page .amazon-contact-sales-form-card {
+  width: 100%;
+  max-width: 38.5rem;
+  justify-self: center;
+  background: #ffffff !important;
+  border: 1px solid #f3f4f6;
+  padding: 1.1rem 1.1rem 1.35rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+}
+
+#root .amazon-contact-page .amazon-contact-form-title {
+  margin: 0 0 0.35rem;
+  color: #1f2937 !important;
+  font-size: 1.7rem;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+#root .amazon-contact-page .amazon-contact-form-copy {
+  margin: 0;
+  color: #4b5563 !important;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+#root .amazon-contact-page .amazon-contact-recaptcha {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  min-height: 46px;
+  border: 1px solid #dbeafe;
+  background: #f8fbff;
+  color: #1f2937 !important;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+#root .amazon-contact-page .amazon-contact-submit {
+  border: 0;
+  background: #ef4444 !important;
+  cursor: pointer;
+}
+
+#root .amazon-contact-page .amazon-contact-submit:hover {
+  background: #dc2626 !important;
+}
+
+@media (min-width: 1024px) {
+  #root .amazon-contact-page .amazon-contact-sales-inner {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    padding: 3.1rem 2rem 3.8rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  #root .amazon-contact-page .amazon-contact-sales-wrap {
+    background: #ffffff !important;
+    border-bottom-right-radius: 1.4rem;
+  }
+
+  #root .amazon-contact-page .amazon-contact-sales-form-card {
+    max-width: 100%;
+  }
+}
+
