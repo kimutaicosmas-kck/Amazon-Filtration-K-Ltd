@@ -3,7 +3,7 @@
 
 Write-Host "Creating Amazon Filtration deployment package..." -ForegroundColor Cyan
 
-$zipName = "amazon-filtration-cpanel-$(Get-Date -Format 'yyyyMMdd-HHmmss').zip"
+$zipName = Join-Path ([Environment]::GetFolderPath("UserProfile")) "Downloads\amazon-filtration-cpanel-careers.zip"
 $tempDir = "deployment-temp"
 
 if (Test-Path $tempDir) {
@@ -21,7 +21,9 @@ $filesToCopy = @(
     "robots.txt",
     "sitemap.xml",
     "browserconfig.xml",
-    ".htaccess"
+    ".htaccess",
+    "CPANEL-README.txt",
+    "google55fe466bb53372ac.html"
 )
 
 foreach ($file in $filesToCopy) {
@@ -32,8 +34,18 @@ foreach ($file in $filesToCopy) {
 }
 
 if (Test-Path "static") {
-    Copy-Item "static" -Destination $tempDir -Recurse -Force
-    Write-Host "  OK static/" -ForegroundColor Green
+    New-Item -ItemType Directory -Path (Join-Path $tempDir "static\js") -Force | Out-Null
+    New-Item -ItemType Directory -Path (Join-Path $tempDir "static\css") -Force | Out-Null
+    Copy-Item "static\js\main.d12675dc.js" -Destination (Join-Path $tempDir "static\js") -Force
+    if (Test-Path "static\js\main.d12675dc.js.LICENSE.txt") {
+        Copy-Item "static\js\main.d12675dc.js.LICENSE.txt" -Destination (Join-Path $tempDir "static\js") -Force
+    }
+    Copy-Item "static\css\main.f964a97d.css" -Destination (Join-Path $tempDir "static\css") -Force
+    Copy-Item "static\css\amazon-industrial.css" -Destination (Join-Path $tempDir "static\css") -Force
+    if (Test-Path "static\css\amazon-dark-theme.css") {
+        Copy-Item "static\css\amazon-dark-theme.css" -Destination (Join-Path $tempDir "static\css") -Force
+    }
+    Write-Host "  OK static/ (current bundle + CSS only)" -ForegroundColor Green
 }
 
 if (Test-Path "build") {
@@ -51,8 +63,11 @@ if (Test-Path "backend-php") {
         Write-Host "  ERROR robocopy backend-php failed (exit $rc)" -ForegroundColor Red
         exit $rc
     }
-    New-Item -ItemType Directory -Path (Join-Path $destBackend "uploads") -Force | Out-Null
-    Write-Host "  OK backend-php/ (uploads folder empty -- set chmod 755 on server)" -ForegroundColor Green
+    New-Item -ItemType Directory -Path (Join-Path $destBackend "uploads\resumes") -Force | Out-Null
+    if (Test-Path "backend-php\uploads\resumes\.htaccess") {
+        Copy-Item "backend-php\uploads\resumes\.htaccess" -Destination (Join-Path $destBackend "uploads\resumes") -Force
+    }
+    Write-Host "  OK backend-php/ (uploads/resumes empty -- set chmod 755 on server)" -ForegroundColor Green
 }
 
 if (Test-Path "images") {

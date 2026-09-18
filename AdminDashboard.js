@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import AdminProductForm from "./AdminProductForm"; // your form component
 
 const AdminDashboard = () => {
@@ -218,6 +218,12 @@ const AdminDashboard = () => {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col sm:flex-row justify-end gap-2 mb-6">
+          <Link
+            to="/admin/careers"
+            className="px-4 py-2 bg-orange-700 text-white text-sm font-medium rounded-md hover:bg-orange-800 text-center"
+          >
+            Vacancies
+          </Link>
           <button
             onClick={handleLogout}
             className="px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"

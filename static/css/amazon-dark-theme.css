@@ -887,18 +887,22 @@ p.abb-caption {
 #root .amazon-industries-page,
 #root .amazon-contact-page,
 #root .amazon-about-page,
+#root .amazon-careers-page,
 body.amazon-route-industries #root main,
 body.amazon-route-contact #root main,
-body.amazon-route-about #root main {
+body.amazon-route-about #root main,
+body.amazon-route-careers #root main {
   background-color: #ffffff !important;
 }
 
 #root .amazon-industries-page,
 #root .amazon-contact-page,
 #root .amazon-about-page,
+#root .amazon-careers-page,
 body.amazon-route-industries #root main > div,
 body.amazon-route-contact #root main > div,
-body.amazon-route-about #root main > div {
+body.amazon-route-about #root main > div,
+body.amazon-route-careers #root main > div {
   background-color: #ffffff !important;
   color: #3f3f46 !important;
 }

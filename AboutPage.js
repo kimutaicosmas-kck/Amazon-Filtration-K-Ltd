@@ -224,10 +224,10 @@ const AboutPage = () => {
               Get In Touch
             </Link>
             <Link
-              to="/products"
+              to="/careers"
               className="border-2 border-white text-white hover:bg-white/10 font-medium py-3 px-6 rounded-lg transition-all duration-300"
             >
-              View products
+              View careers
             </Link>
           </div>
         </div>

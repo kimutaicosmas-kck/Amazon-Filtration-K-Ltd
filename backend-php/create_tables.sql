@@ -49,3 +49,38 @@ CREATE INDEX idx_products_category ON products(category);
 CREATE INDEX idx_products_status ON products(status);
 CREATE INDEX idx_products_code ON products(code);
 CREATE INDEX idx_contact_created_at ON contact_submissions(created_at);
+
+-- Careers: vacancies advertised on the public site
+CREATE TABLE IF NOT EXISTS job_vacancies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    slug VARCHAR(220) NOT NULL UNIQUE,
+    department VARCHAR(100) DEFAULT '',
+    location VARCHAR(150) DEFAULT 'Nairobi, Kenya',
+    employment_type VARCHAR(50) DEFAULT 'Full-time',
+    description TEXT NOT NULL,
+    responsibilities TEXT,
+    requirements TEXT,
+    benefits TEXT,
+    closing_date DATE NULL,
+    status VARCHAR(20) DEFAULT 'draft',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS job_applications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    job_id INT NULL,
+    full_name VARCHAR(150) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    phone VARCHAR(40),
+    cover_letter TEXT,
+    resume_path VARCHAR(500),
+    resume_name VARCHAR(255),
+    status VARCHAR(30) DEFAULT 'new',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_job_status ON job_vacancies(status);
+CREATE INDEX idx_app_job ON job_applications(job_id);
+CREATE INDEX idx_app_created ON job_applications(created_at);

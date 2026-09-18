@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Award, Users, Wrench } from 'lucide-react';
+import { ArrowRight, Award, Users, Wrench, Briefcase } from 'lucide-react';
+import { fetchOpenJobs } from './jobsApi';
 
 const publicUrl = () =>
   typeof window !== 'undefined' && window.__AMAZON_API_BASE__ !== undefined
@@ -9,7 +10,20 @@ const publicUrl = () =>
 
 const HomePage = () => {
   const [activeIndustryIndex, setActiveIndustryIndex] = useState(0);
+  const [openJobs, setOpenJobs] = useState([]);
   const heroImageSrc = `${publicUrl()}/images/hero/hero-engine-bay.png`;
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchOpenJobs()
+      .then((list) => {
+        if (!cancelled) setOpenJobs(list);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
   const heroImageAlt =
     'High-performance engine bay with premium intake filtration — automotive and industrial applications';
 
@@ -133,6 +147,24 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {openJobs.length > 0 ? (
+        <section className="amazon-hiring-banner">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <p className="text-sm sm:text-base font-medium text-zinc-900 inline-flex items-center gap-2">
+              <Briefcase className="w-5 h-5 text-orange-700 shrink-0" />
+              We are hiring — {openJobs.length === 1 ? openJobs[0].title : `${openJobs.length} open vacancies`}
+            </p>
+            <Link
+              to="/careers"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-orange-800 hover:text-orange-950"
+            >
+              View careers
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </section>
+      ) : null}
 
       {/* Built for industry partners — left rail + large visual */}
       <section className="amazon-home-section">

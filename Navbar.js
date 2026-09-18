@@ -41,6 +41,7 @@ const Navbar = () => {
     { name: 'Products', path: '/products' },
     { name: 'Industries', path: '/industries' },
     { name: 'About', path: '/about' },
+    { name: 'Careers', path: '/careers' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -67,7 +68,9 @@ const Navbar = () => {
                 const active =
                   item.name === 'Products'
                     ? isProductsNavActive(location.pathname)
-                    : location.pathname === item.path;
+                    : item.name === 'Careers'
+                      ? location.pathname.startsWith('/careers')
+                      : location.pathname === item.path;
                 return (
                 <Link
                   key={item.name}
@@ -121,7 +124,9 @@ const Navbar = () => {
                   const active =
                     item.name === 'Products'
                       ? isProductsNavActive(location.pathname)
-                      : location.pathname === item.path;
+                      : item.name === 'Careers'
+                        ? location.pathname.startsWith('/careers')
+                        : location.pathname === item.path;
                   return (
                   <Link
                     key={item.name}

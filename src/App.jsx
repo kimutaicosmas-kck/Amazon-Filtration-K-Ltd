@@ -33,6 +33,12 @@ import AdminDashboard from "../AdminDashboard.js";
 
 import AdminProductForm from "../AdminProductForm.js";
 
+import CareersPage from "../CareersPage.js";
+
+import JobDetailPage from "../JobDetailPage.js";
+
+import AdminCareers from "../AdminCareers.js";
+
 
 
 const apiRoot = () =>
@@ -295,6 +301,10 @@ export default function App() {
 
           <Route path="/support" element={<Navigate to="/contact" replace />} />
 
+          <Route path="/careers/:slug" element={<JobDetailPage />} />
+
+          <Route path="/careers" element={<CareersPage />} />
+
           <Route path="/contact" element={<ContactPage />} />
 
           <Route path="/admin" element={<AdminLogin />} />
@@ -342,6 +352,22 @@ export default function App() {
               <AdminSessionGate>
 
                 <AdminEditProductPage />
+
+              </AdminSessionGate>
+
+            }
+
+          />
+
+          <Route
+
+            path="/admin/careers"
+
+            element={
+
+              <AdminSessionGate>
+
+                <AdminCareers />
 
               </AdminSessionGate>
 
