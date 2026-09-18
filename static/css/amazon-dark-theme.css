@@ -5,12 +5,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --amazon-bg: #000000;
-  --amazon-surface: #1c1c1e;
-  --amazon-surface-2: #2c2c2e;
-  --amazon-muted: #86868b;
-  --amazon-text: #f5f5f7;
-  --amazon-accent: #2997ff;
+  --amazon-bg: #f6f4ef;
+  --amazon-surface: #ffffff;
+  --amazon-surface-2: #eef1f4;
+  --amazon-muted: #5b6170;
+  --amazon-text: #1f2937;
+  --amazon-accent: #b45309;
   --amazon-border: rgba(255, 255, 255, 0.12);
   --amazon-gradient: linear-gradient(
     90deg,
@@ -174,11 +174,12 @@ body,
   background-color: #ffffff !important;
 }
 
-/* Keep logo area white and separated */
-#root nav .cursor-pointer {
-  background-color: #ffffff !important;
-  border-radius: 0.5rem !important;
-  padding: 0.25rem 0.5rem !important;
+/* Logo sits on the steel bar — no white plate */
+#root nav .cursor-pointer,
+#root nav .af-nav-brand {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
 }
 
 /* Nav text colors for white header */
@@ -280,7 +281,7 @@ body,
   border-color: var(--amazon-border) !important;
 }
 
-/* ——— Forms ——— */
+/* ——— Forms (light, readable — do not use dark surfaces) ——— */
 #root input[type="text"],
 #root input[type="email"],
 #root input[type="password"],
@@ -288,28 +289,32 @@ body,
 #root input[type="search"],
 #root input[type="tel"],
 #root input[type="url"],
+#root input[type="date"],
+#root input[type="file"],
 #root textarea,
 #root select {
-  background-color: var(--amazon-surface) !important;
-  color: var(--amazon-text) !important;
-  border-color: var(--amazon-border) !important;
+  background-color: #ffffff !important;
+  color: #121820 !important;
+  border-color: #d4d4d8 !important;
+  caret-color: #121820 !important;
 }
 #root input::placeholder,
 #root textarea::placeholder {
-  color: #636366 !important;
+  color: #71717a !important;
 }
 #root .form-modern input,
 #root .form-modern select,
 #root .form-modern textarea {
-  background: var(--amazon-surface) !important;
-  border-color: var(--amazon-border) !important;
-  color: var(--amazon-text) !important;
+  background: #ffffff !important;
+  border-color: #d4d4d8 !important;
+  color: #121820 !important;
 }
 #root .form-modern input:focus,
 #root .form-modern select:focus,
 #root .form-modern textarea:focus {
-  background: #000 !important;
-  border-color: var(--amazon-accent) !important;
+  background: #ffffff !important;
+  color: #121820 !important;
+  border-color: #c2410c !important;
 }
 
 /* ——— Tables (admin) ——— */
@@ -326,13 +331,13 @@ body,
 
 /* ——— Footer ——— */
 #root footer.bg-industrial-900 {
-  background-color: #000000 !important;
-  border-top: 1px solid var(--amazon-border);
+  background-color: #2f3b4c !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 /* ——— Industrial / slate blocks ——— */
 #root .bg-industrial-900 {
-  background-color: #000000 !important;
+  background-color: #2f3b4c !important;
 }
 #root .bg-industrial-600 {
   background-color: var(--amazon-surface-2) !important;
@@ -340,7 +345,7 @@ body,
 
 /* ——— Scrollbar ——— */
 ::-webkit-scrollbar-track {
-  background: #0a0a0a !important;
+  background: #eef1f4 !important;
 }
 ::-webkit-scrollbar-thumb {
   background: #424245 !important;
@@ -910,9 +915,11 @@ body.amazon-route-careers #root main > div {
 #root .amazon-industries-page .bg-white,
 #root .amazon-contact-page .bg-white,
 #root .amazon-about-page .bg-white,
+#root .amazon-careers-page .bg-white,
 body.amazon-route-industries #root main > div .bg-white,
 body.amazon-route-contact #root main > div .bg-white,
-body.amazon-route-about #root main > div .bg-white {
+body.amazon-route-about #root main > div .bg-white,
+body.amazon-route-careers #root main > div .bg-white {
   background-color: #ffffff !important;
 }
 
@@ -1077,6 +1084,9 @@ body.amazon-route-about #root main > div .hover\:bg-gray-100:hover {
 #root .amazon-contact-page input[type="url"],
 #root .amazon-contact-page textarea,
 #root .amazon-contact-page select,
+#root .amazon-careers-page input,
+#root .amazon-careers-page textarea,
+#root .amazon-careers-page select,
 body.amazon-route-contact #root main > div input[type="text"],
 body.amazon-route-contact #root main > div input[type="email"],
 body.amazon-route-contact #root main > div input[type="password"],
@@ -1085,7 +1095,10 @@ body.amazon-route-contact #root main > div input[type="search"],
 body.amazon-route-contact #root main > div input[type="tel"],
 body.amazon-route-contact #root main > div input[type="url"],
 body.amazon-route-contact #root main > div textarea,
-body.amazon-route-contact #root main > div select {
+body.amazon-route-contact #root main > div select,
+body.amazon-route-careers #root main input,
+body.amazon-route-careers #root main textarea,
+body.amazon-route-careers #root main select {
   background-color: #ffffff !important;
   color: #18181b !important;
   border-color: #d4d4d8 !important;
@@ -1093,8 +1106,12 @@ body.amazon-route-contact #root main > div select {
 
 #root .amazon-contact-page input::placeholder,
 #root .amazon-contact-page textarea::placeholder,
+#root .amazon-careers-page input::placeholder,
+#root .amazon-careers-page textarea::placeholder,
 body.amazon-route-contact #root main > div input::placeholder,
-body.amazon-route-contact #root main > div textarea::placeholder {
+body.amazon-route-contact #root main > div textarea::placeholder,
+body.amazon-route-careers #root main input::placeholder,
+body.amazon-route-careers #root main textarea::placeholder {
   color: #71717a !important;
 }
 

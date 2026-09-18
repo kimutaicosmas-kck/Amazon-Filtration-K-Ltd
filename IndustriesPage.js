@@ -12,109 +12,146 @@ const IndustriesPage = () => {
     {
       name: 'Automotive',
       description: 'Cars, trucks, buses, and commercial vehicles',
-      icon: <Truck className="w-12 h-12 text-primary-600" />,
+      icon: <Truck className="w-12 h-12 text-white" />,
       image: `${publicUrl()}/images/industries/industry-01-automotive.png`,
       applications: [
-        'Passenger vehicles',
+        'Passenger cars and taxis',
         'Commercial trucks',
         'Buses and coaches',
-        'Fleet vehicles',
-        'Emergency vehicles'
+        'Workshop and fleet service'
       ],
-      products: ['Oil Filters', 'Air Filters', 'Fuel Filters', 'Cabin Filters']
+      products: [
+        { name: 'Oil filters', to: '/products#category-oil-filters' },
+        { name: 'Air filters', to: '/products#category-air-filters' },
+        { name: 'Fuel filters', to: '/products#category-fuel-filters' },
+        { name: 'Cabin filters', to: '/products#category-cabin-filters' },
+      ]
     },
     {
       name: 'Construction',
       description: 'Excavators, loaders, bulldozers, and heavy machinery',
-      icon: <Building className="w-12 h-12 text-primary-600" />,
+      icon: <Building className="w-12 h-12 text-white" />,
       image: `${publicUrl()}/images/industries/industry-02-construction.png`,
       applications: [
         'Excavators and loaders',
-        'Bulldozers and graders',
-        'Cranes and lifts',
-        'Concrete equipment',
-        'Road construction machinery'
+        'Graders and compactors',
+        'Plant hire fleets',
+        'Site generators'
       ],
-      products: ['Hydraulic Filters', 'Oil Filters', 'Air Filters', 'Fuel Filters']
+      products: [
+        { name: 'Hydraulic return', to: '/products#category-hydraulic-return-filters' },
+        { name: 'Oil filters', to: '/products#category-oil-filters' },
+        { name: 'Air filters', to: '/products#category-air-filters' },
+        { name: 'Fuel filters', to: '/products#category-fuel-filters' },
+      ]
     },
     {
       name: 'Agriculture',
       description: 'Tractors, harvesters, and farming equipment',
-      icon: <Tractor className="w-12 h-12 text-primary-600" />,
+      icon: <Tractor className="w-12 h-12 text-white" />,
       image: `${publicUrl()}/images/industries/industry-03-agriculture.png`,
       applications: [
         'Tractors and harvesters',
-        'Planting equipment',
-        'Spraying machinery',
-        'Irrigation systems',
-        'Livestock equipment'
+        'Irrigation pumps',
+        'Sprayers and planters',
+        'Workshop service stock'
       ],
-      products: ['Oil Filters', 'Hydraulic Filters', 'Air Filters', 'Coolant Filters']
+      products: [
+        { name: 'Oil filters', to: '/products#category-oil-filters' },
+        { name: 'Hydraulic return', to: '/products#category-hydraulic-return-filters' },
+        { name: 'Air filters', to: '/products#category-air-filters' },
+        { name: 'Coolant', to: '/products#category-coolant-filters' },
+      ]
     },
     {
       name: 'Power & Energy',
-      description: 'Generators, compressors, and power systems',
-      icon: <Zap className="w-12 h-12 text-primary-600" />,
+      description: 'Standby generators, compressors, and plant power',
+      icon: <Zap className="w-12 h-12 text-white" />,
       image: `${publicUrl()}/images/industries/industry-04-power-energy.png`,
       applications: [
-        'Power generators',
+        'Standby generators',
         'Compressors',
-        'Turbines',
-        'Wind energy systems',
-        'Solar power equipment'
+        'Factory power units',
+        'Telecom and site power'
       ],
-      products: ['Oil Filters', 'Hydraulic Filters', 'Air Filters', 'Fuel Filters']
+      products: [
+        { name: 'Oil filters', to: '/products#category-oil-filters' },
+        { name: 'Fuel filters', to: '/products#category-fuel-filters' },
+        { name: 'Air filters', to: '/products#category-air-filters' },
+        { name: 'Hydraulic return', to: '/products#category-hydraulic-return-filters' },
+      ]
     },
     {
       name: 'Industrial Machines',
       description: 'Manufacturing equipment and hydraulic systems',
-      icon: <Cog className="w-12 h-12 text-primary-600" />,
+      icon: <Cog className="w-12 h-12 text-white" />,
       image: `${publicUrl()}/images/industries/industry-05-industrial.png`,
       applications: [
-        'Manufacturing equipment',
-        'Hydraulic systems',
-        'Pneumatic systems',
+        'Factory hydraulics',
         'Processing machinery',
-        'Material handling'
+        'Material handling',
+        'Maintenance stores'
       ],
-      products: ['Hydraulic Filters', 'Oil Filters', 'Air Filters', 'Coolant Filters']
+      products: [
+        { name: 'Hydraulic return', to: '/products#category-hydraulic-return-filters' },
+        { name: 'Oil filters', to: '/products#category-oil-filters' },
+        { name: 'Air filters', to: '/products#category-air-filters' },
+        { name: 'Coolant', to: '/products#category-coolant-filters' },
+      ]
     },
     {
       name: 'Marine & Offshore',
-      description: 'Boats, ships, and offshore equipment',
-      icon: <Wrench className="w-12 h-12 text-primary-600" />,
+      description: 'Coastal vessels, fishing boats, and marine engines',
+      icon: <Wrench className="w-12 h-12 text-white" />,
       image: `${publicUrl()}/images/industries/industry-06-marine.png`,
       applications: [
-        'Commercial vessels',
         'Fishing boats',
-        'Offshore platforms',
-        'Marine engines',
-        'Navigation equipment'
+        'Coastal workboats',
+        'Marine diesel engines',
+        'Harbour equipment'
       ],
-      products: ['Oil Filters', 'Fuel Filters', 'Hydraulic Filters', 'Air Filters']
+      products: [
+        { name: 'Oil filters', to: '/products#category-oil-filters' },
+        { name: 'Fuel filters', to: '/products#category-fuel-filters' },
+        { name: 'Hydraulic return', to: '/products#category-hydraulic-return-filters' },
+        { name: 'Air filters', to: '/products#category-air-filters' },
+      ]
     }
   ];
 
   return (
     <div className="amazon-industries-page min-h-screen overflow-x-hidden">
+      <section className="af-page-hero">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="af-kicker-row">Sectors we supply</p>
+          <h1 className="max-w-3xl text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900">
+            Built for machines that work
+          </h1>
+          <p className="mt-5 max-w-2xl text-base sm:text-lg text-zinc-600 leading-relaxed">
+            Factory programmes for automotive, construction, agriculture, power, industrial, and marine, specified
+            from the Nairobi plant, not assembled from mixed imports.
+          </p>
+        </div>
+      </section>
+
       {/* Industries Grid */}
       <div className="py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {industries.map((industry, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div key={index} className="af-industry-card">
                 <div className="relative">
                   <img
                     src={industry.image}
                     alt={`${industry.name} industry applications and machinery`}
                     className="w-full h-64 object-cover"
                     onError={(e) => {
-                      e.target.src = `https://via.placeholder.com/600x400/1e40af/ffffff?text=${encodeURIComponent(industry.name)}`;
-                      console.log(`Failed to load image for ${industry.name}: ${industry.image}`);
+                      e.target.onerror = null;
+                      e.target.src = `${publicUrl()}/images/home/nairobi-factory.jpg`;
                     }}
                   />
                   <div
-                    className="absolute inset-0 pointer-events-none bg-gradient-to-br from-sky-400/35 via-blue-700/30 to-indigo-950/45"
+                    className="absolute inset-0 pointer-events-none bg-gradient-to-br from-zinc-900/25 via-zinc-900/20 to-zinc-950/50"
                     aria-hidden
                   />
                   <div
@@ -123,7 +160,7 @@ const IndustriesPage = () => {
                   />
                   <div className="absolute bottom-4 left-4 right-4">
                     <div className="flex items-center space-x-3 mb-2">
-                      <div className="bg-white/20 backdrop-blur-sm rounded-lg p-2">
+                      <div className="bg-white/15 p-2">
                         {industry.icon}
                       </div>
                       <h3 className="text-2xl font-bold text-white">{industry.name}</h3>
@@ -134,7 +171,7 @@ const IndustriesPage = () => {
                 
                 <div className="p-6">
                   <div className="mb-6">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-3">Key Applications</h4>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-3">Typical machines</h4>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {industry.applications.map((app, appIndex) => (
                         <li key={appIndex} className="flex items-center text-sm text-gray-600">
@@ -146,32 +183,33 @@ const IndustriesPage = () => {
                   </div>
                   
                   <div className="mb-6">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-3">Recommended Products</h4>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-3">Lines we supply</h4>
                     <div className="flex flex-wrap gap-2">
-                      {industry.products.map((product, productIndex) => (
-                        <span
-                          key={productIndex}
-                          className="inline-block bg-primary-100 text-primary-800 text-xs font-medium px-3 py-1 rounded-full"
+                      {industry.products.map((product) => (
+                        <Link
+                          key={product.to}
+                          to={product.to}
+                          className="af-line-chip"
                         >
-                          {product}
-                        </span>
+                          {product.name}
+                        </Link>
                       ))}
                     </div>
                   </div>
                   
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Link
-                      to={`/products?industry=${industry.name.toLowerCase()}`}
-                      className="flex-1 btn-primary text-center flex items-center justify-center"
+                      to={industry.products[0].to}
+                      className="flex-1 amazon-btn-hero-primary inline-flex items-center justify-center px-4 py-3 font-semibold"
                     >
-                      View Products
+                      View products
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                     <Link
                       to="/contact"
-                      className="flex-1 btn-outline text-center"
+                      className="flex-1 amazon-btn-hero-outline inline-flex items-center justify-center px-4 py-3 font-semibold"
                     >
-                      Get Quote
+                      Request a quote
                     </Link>
                   </div>
                 </div>
@@ -185,42 +223,43 @@ const IndustriesPage = () => {
       <div className="bg-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
+            <p className="af-kicker-row justify-center">Why plants specify us</p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Industries Trust Us
+              One factory, six working sectors
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Our deep industry knowledge and proven track record make us the preferred choice
+              Media, fit, and lead times that workshops and distributors can plan around
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Wrench className="w-8 h-8 text-primary-600" />
+            <div className="af-mfg-card">
+              <div className="w-12 h-12 bg-[#2f3b4c] flex items-center justify-center mb-4">
+                <Wrench className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Industry Expertise</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Known applications</h3>
               <p className="text-gray-600">
-                Deep understanding of specific industry requirements and challenges across all sectors we serve.
+                We specify to the machine: taxis, plant hire, tractors, generators, factory hydraulics, and workboats.
               </p>
             </div>
             
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Cog className="w-8 h-8 text-primary-600" />
+            <div className="af-mfg-card">
+              <div className="w-12 h-12 bg-[#2f3b4c] flex items-center justify-center mb-4">
+                <Cog className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Custom Solutions</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Standard or custom</h3>
               <p className="text-gray-600">
-                Tailored filtration solutions designed to meet the unique demands of your specific industry applications.
+                Catalogue lines for volume, or a housing and media spec drawn for your own programme.
               </p>
             </div>
             
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Truck className="w-8 h-8 text-primary-600" />
+            <div className="af-mfg-card">
+              <div className="w-12 h-12 bg-[#2f3b4c] flex items-center justify-center mb-4">
+                <Truck className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Reliable Supply</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Factory-direct supply</h3>
               <p className="text-gray-600">
-                Consistent product availability and fast delivery to keep your operations running smoothly.
+                Packed and labelled at Embakasi, then sent to your stores. No mixed import lots in the middle.
               </p>
             </div>
           </div>
@@ -228,30 +267,23 @@ const IndustriesPage = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-primary-600 py-12">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Ready to Optimize Your Industry Operations?
-          </h2>
-          <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
-            Let our industry experts help you find the perfect filtration solutions for your specific needs
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
-              className="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
-            >
-              Contact Industry Expert
-            </Link>
-            <Link
-              to="/products"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
-            >
-              Browse All Products
+      <section className="af-factory-cta">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <p className="af-kicker-row">Specify a sector</p>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">Need a line for your machines?</h2>
+            <p className="mt-2 text-sm sm:text-base text-white/70 max-w-xl">
+              Tell the Nairobi team the application. We will match media, fit, and a factory programme.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link to="/contact" className="af-site-cta text-center">Talk to an engineer</Link>
+            <Link to="/products" className="amazon-btn-hero-outline inline-flex items-center justify-center px-5 py-3 font-semibold">
+              Browse lines
             </Link>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

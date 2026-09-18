@@ -18,6 +18,10 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
   // Handle logo clicks for admin access
   const handleLogoClick = () => {
     setLogoClickCount(prev => {
@@ -47,7 +51,7 @@ const Navbar = () => {
 
   return (
       <nav
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+        className={`af-site-nav sticky top-0 z-50 transition-all duration-300 ${
           isScrolled ? 'amazon-nav-scrolled' : ''
         }`}
       >
@@ -56,10 +60,10 @@ const Navbar = () => {
                 {/* Logo */}
                 <div 
                   onClick={handleLogoClick} 
-                  className="cursor-pointer transition-transform hover:scale-105"
-                  title={`Click ${5 - logoClickCount} more times for admin access`}
+                  className="af-nav-brand cursor-pointer"
+                  title="Amazon Filtration (K) Ltd"
                 >
-                  <Logo size="default" showText={true} variant="default" />
+                  <Logo size="default" showText={true} variant="onDark" />
                 </div>
 
             {/* Desktop Navigation */}
@@ -75,11 +79,7 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`font-medium transition-colors duration-200 ${
-                    active
-                      ? 'text-white border-b-2 border-white pb-1'
-                      : 'text-gray-300 hover:text-white'
-                  }`}
+                  className={`af-site-nav-link ${active ? 'is-active' : ''}`}
                 >
                   {item.name}
                 </Link>
@@ -98,19 +98,22 @@ const Navbar = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="hidden lg:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center space-x-5">
+              <a href="tel:+254714752613" className="af-nav-phone">
+                +254 714 752 613
+              </a>
               <Link
                 to="/contact"
-                className="btn-primary"
+                className="af-site-cta"
               >
-                Get Quote
+                Get a quote
               </Link>
             </div>
 
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+              className="lg:hidden p-2 rounded-md text-white hover:bg-white/10"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -118,7 +121,7 @@ const Navbar = () => {
 
           {/* Mobile Navigation */}
           {isOpen && (
-            <div className="lg:hidden border-t border-gray-200 py-4">
+            <div className="lg:hidden border-t border-white/10 py-4">
               <div className="flex flex-col space-y-4">
                 {navItems.map((item) => {
                   const active =
@@ -132,21 +135,17 @@ const Navbar = () => {
                     key={item.name}
                     to={item.path}
                     onClick={() => setIsOpen(false)}
-                    className={`font-medium py-2 px-4 rounded-md transition-colors duration-200 ${
-                      active
-                        ? 'text-white bg-primary-50'
-                        : 'text-gray-300 hover:text-white hover:bg-gray-700'
-                    }`}
+                    className={`af-site-nav-link block py-2 ${active ? 'is-active' : ''}`}
                   >
                     {item.name}
                   </Link>
                 );
                 })}
-                <div className="pt-4 border-t border-gray-200">
+                <div className="pt-4 border-t border-white/10">
                   <Link
                     to="/contact"
                     onClick={() => setIsOpen(false)}
-                    className="btn-primary w-full text-center block"
+                    className="af-site-cta w-full text-center block"
                   >
                     Get Quote
                   </Link>

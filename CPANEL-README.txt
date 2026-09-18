@@ -1,18 +1,20 @@
-Amazon Filtration — cPanel extract instructions
-================================================
+Amazon Filtration — overlay
+===========================
 
-1. In cPanel File Manager open public_html.
-2. Upload amazon-filtration-cpanel-careers.zip.
-3. Extract HERE (do not extract into a new subfolder).
-4. Confirm you see index.html, .htaccess, static/, images/, backend-php/ in public_html.
-5. Set backend-php/uploads and backend-php/uploads/resumes to writable (chmod 755 or 775).
+This zip ONLY overwrites a few files. It does not wipe the site.
 
-After extract, test:
-  https://amazonfiltration.co.ke/
-  https://amazonfiltration.co.ke/careers
+DO NOT delete public_html.
+DO NOT delete the images folder.
 
-Admin vacancies (hidden access, same as before):
-  Double-click the lock in the footer, or click the logo 5 times, then open Vacancies.
+1. Open cPanel File Manager -> public_html
+2. If you see a folder named "about" sitting NEXT TO index.html
+   (not inside images), delete that "about" folder only.
+   It is an old photo folder. Refreshing /about then shows
+   "Index of /about/" instead of the About page.
+   Keep images/about if it exists.
+3. Upload amazon-filtration-careers-OVERLAY.zip
+4. Extract here (overwrite same-named files only)
+5. Hard-refresh with Ctrl+F5
 
-Job tables are created automatically the first time /careers or Admin → Vacancies is opened.
-No extra SQL step is required if the existing MySQL database is already working.
+The new .htaccess sends /about, /products, /careers, /contact
+to the website even if an old folder is still there.

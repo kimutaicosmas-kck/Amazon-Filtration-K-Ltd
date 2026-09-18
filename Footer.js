@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram, Shield } from 'lucide-react';
+import { Phone, Mail, MapPin, Shield } from 'lucide-react';
 import Logo from './Logo';
 
 const Footer = () => {
@@ -25,37 +25,28 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white border-t border-white/10">
+    <footer className="af-site-footer text-white border-t border-white/10">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <Logo size="default" showText={true} variant="white" />
-            <p className="amazon-text-muted text-sm leading-relaxed">
-              Reliable filtration solutions for machines and industry. High-performance filters 
-              for oil, fuel, air, and hydraulics – trusted by professionals worldwide.
+            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-orange-500 mb-2">
+              Plant, Embakasi, Nairobi
             </p>
-            <div className="flex space-x-4">
-              <a href={`https://wa.me/254714752613?text=${encodeURIComponent('Hello Amazon Filtration (K) Ltd')}`} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 transition-colors" aria-label="WhatsApp">
-                <svg viewBox="0 0 32 32" className="w-5 h-5" fill="currentColor" aria-hidden="true">
-                  <path d="M19.11 17.41c-.26-.13-1.55-.77-1.79-.86-.24-.09-.41-.13-.58.13-.17.26-.67.86-.82 1.04-.15.17-.3.2-.56.07-.26-.13-1.07-.39-2.05-1.24-.76-.68-1.27-1.52-1.42-1.78-.15-.26-.02-.4.11-.53.11-.11.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.58-1.39-.8-1.9-.21-.5-.42-.43-.58-.43-.15 0-.32-.02-.49-.02-.17 0-.45.06-.69.32-.24.26-.9.88-.9 2.14 0 1.26.92 2.48 1.05 2.65.13.17 1.81 2.77 4.39 3.89.61.26 1.08.41 1.45.53.61.19 1.16.16 1.6.1.49-.07 1.55-.63 1.77-1.25.22-.62.22-1.15.15-1.25-.06-.1-.24-.16-.5-.29z"/>
-                  <path d="M16 3c-7.18 0-13 5.82-13 13 0 2.29.6 4.45 1.65 6.31L3 29l6.85-1.79C11.61 28.4 13.72 29 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3zm0 23c-2.12 0-4.09-.62-5.75-1.68l-.41-.26-4.06 1.06 1.08-3.96-.27-.41C5.53 19.11 5 17.61 5 16 5 9.92 9.92 5 16 5s11 4.92 11 11-4.92 10-11 10z"/>
-                </svg>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-            </div>
+            <p className="amazon-text-muted text-sm leading-relaxed">
+              Filter manufacturer in Nairobi. Air, fuel, oil, and hydraulic lines for distributors,
+              fleets, and industry across East Africa.
+            </p>
+            <a
+              href={`https://wa.me/254714752613?text=${encodeURIComponent('Hello Amazon Filtration (K) Ltd')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white"
+            >
+              WhatsApp the plant
+            </a>
           </div>
 
           {/* Products */}
@@ -100,20 +91,20 @@ const Footer = () => {
                 <MapPin className="w-5 h-5 text-primary-400 mt-0.5 flex-shrink-0" />
                 <div className="text-sm text-gray-300">
                   <p>P.O BOX 3270-00506, NAIROBI</p>
-                  <p>BELLWAY INDUSTRIAL PARK,EMBAKASI ROAD</p>
-                  <p>OFF AIRPORT NORTH ROAD,EMBAKASI EAST CONSTITUENCY,NAIRO</p>
+                  <p>Bellway Industrial Park, Embakasi Road</p>
+                  <p>Off Airport North Road, Embakasi East, Nairobi</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-primary-400 flex-shrink-0" />
                 <div className="text-sm text-gray-300">
-                  <p>+254 714752613</p>
-                  <p>+254 720799363</p>
+                  <a href="tel:+254714752613" className="block hover:text-white">+254 714 752 613</a>
+                  <a href="tel:+254720799363" className="block hover:text-white">+254 720 799 363</a>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-primary-400 flex-shrink-0" />
-                <p className="text-sm text-gray-300">filterskenyaltd@gmail.com</p>
+                <a href="mailto:filterskenyaltd@gmail.com" className="text-sm text-gray-300 hover:text-white">filterskenyaltd@gmail.com</a>
               </div>
             </div>
           </div>
@@ -136,14 +127,14 @@ const Footer = () => {
               </span>
             </div>
             <div className="flex space-x-6 text-sm">
-              <Link to="/contact" className="text-gray-400 hover:text-primary-400 transition-colors">
-                Privacy Policy
+              <Link to="/products" className="text-gray-400 hover:text-white transition-colors">
+                Products
               </Link>
-              <Link to="/contact" className="text-gray-400 hover:text-primary-400 transition-colors">
-                Terms of Service
+              <Link to="/careers" className="text-gray-400 hover:text-white transition-colors">
+                Careers
               </Link>
-              <Link to="/contact" className="text-gray-400 hover:text-primary-400 transition-colors">
-                Support
+              <Link to="/contact" className="text-gray-400 hover:text-white transition-colors">
+                Contact
               </Link>
               {/* Hidden admin link */}
               {showAdminLink && (

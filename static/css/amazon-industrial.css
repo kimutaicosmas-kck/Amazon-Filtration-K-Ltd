@@ -5,17 +5,17 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
 
 :root {
-  --af-ink: #0c1220;
-  --af-steel: #141b2b;
-  --af-steel-2: #1c2538;
+  --af-ink: #2f3b4c;
+  --af-steel: #3d4a5c;
+  --af-steel-2: #4a586c;
   --af-paper: #f4f1ea;
   --af-paper-2: #ebe6db;
   --af-white: #fbfaf6;
   --af-line: #d8d2c6;
-  --af-text: #161a24;
+  --af-text: #1f2937;
   --af-muted: #5b6170;
-  --af-accent: #c2410c;
-  --af-accent-2: #9a3412;
+  --af-accent: #b45309;
+  --af-accent-2: #92400e;
   --af-accent-soft: rgba(194, 65, 12, 0.1);
   --af-font: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
 }
@@ -1222,6 +1222,9 @@ body,
 .amazon-contact-page input,
 .amazon-contact-page textarea,
 .amazon-contact-page select,
+.amazon-careers-page input,
+.amazon-careers-page textarea,
+.amazon-careers-page select,
 .amazon-product-line-page input,
 .amazon-product-line-page select {
   background: #fff;
@@ -1232,6 +1235,9 @@ body,
 
 .amazon-contact-page input:focus,
 .amazon-contact-page textarea:focus,
+.amazon-careers-page input:focus,
+.amazon-careers-page textarea:focus,
+.amazon-careers-page select:focus,
 .amazon-product-line-page input:focus,
 .amazon-product-line-page select:focus {
   outline: 2px solid rgba(194, 65, 12, 0.25);
@@ -1250,43 +1256,45 @@ body,
   color: var(--af-text);
 }
 
+.amazon-home-hero {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.amazon-industry-layout {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .amazon-industry-layout {
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
+    align-items: stretch;
+  }
+}
+
+.amazon-industry-visual {
+  position: relative;
+  width: 100%;
+  min-height: 260px;
+  overflow: hidden;
+}
+
 .amazon-hiring-banner {
   background: #fff7ed;
   border-bottom: 1px solid #fdba74;
 }
 
-.text-orange-700,
 .amazon-careers-page .text-orange-700,
 .amazon-hiring-banner .text-orange-700 {
   color: #c2410c;
 }
 
-.text-orange-800,
 .amazon-careers-page .text-orange-800,
 .amazon-hiring-banner .text-orange-800 {
   color: #9a3412;
-}
-
-.hover\:text-orange-950:hover {
-  color: #7c2d12;
-}
-
-.bg-orange-700 {
-  background: #c2410c;
-}
-
-.hover\:bg-orange-800:hover {
-  background: #9a3412;
-}
-
-.border-orange-400 {
-  border-color: #fb923c;
-}
-
-.ring-orange-200:focus,
-.focus\:ring-orange-200:focus,
-.focus\:ring-orange-500:focus {
-  --tw-ring-color: rgba(194, 65, 12, 0.35);
 }
 
 .amazon-career-perk {

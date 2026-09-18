@@ -134,8 +134,8 @@ const AdminJobForm = ({ job = null, onSave, onCancel, saving = false, error = ''
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
             <select value={form.status} onChange={(e) => update('status', e.target.value)} className={field}>
-              <option value="open">Open — visible on the website</option>
-              <option value="draft">Draft — hidden</option>
+              <option value="open">Open, visible on the website</option>
+              <option value="draft">Draft, hidden</option>
               <option value="closed">Closed</option>
             </select>
           </div>

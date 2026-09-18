@@ -165,7 +165,7 @@ const ProductDetailPage = () => {
 
   const waOrderHref = useMemo(() => {
     if (!product) return 'https://wa.me/254714752613';
-    const text = `Hello Amazon Filtration — I would like to order: ${product.code} (${product.name}). Quantity: ${qty}.`;
+    const text = `Hello Amazon Filtration. I would like to order: ${product.code} (${product.name}). Quantity: ${qty}.`;
     return `https://wa.me/254714752613?text=${encodeURIComponent(text)}`;
   }, [product, qty]);
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Award, Users, Wrench, Briefcase } from 'lucide-react';
+import { ArrowRight, Wrench, Briefcase, Factory, ShieldCheck, Truck } from 'lucide-react';
 import { fetchOpenJobs } from './jobsApi';
 
 const publicUrl = () =>
@@ -8,10 +8,52 @@ const publicUrl = () =>
     ? window.__AMAZON_API_BASE__
     : '';
 
+const FallbackImg = ({ sources, alt, className, ...rest }) => {
+  const [index, setIndex] = useState(0);
+  const src = sources[Math.min(index, sources.length - 1)];
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+      onError={() => {
+        setIndex((current) => (current < sources.length - 1 ? current + 1 : current));
+      }}
+      {...rest}
+    />
+  );
+};
+
+const imgSet = (localPath, livePartner) => {
+  const base = publicUrl();
+  return [
+    `${base}${localPath}`,
+    `https://amazonfiltration.co.ke${localPath}`,
+    livePartner ? `${base}${livePartner}` : null,
+    livePartner ? `https://amazonfiltration.co.ke${livePartner}` : null,
+  ].filter(Boolean);
+};
+
 const HomePage = () => {
-  const [activeIndustryIndex, setActiveIndustryIndex] = useState(0);
   const [openJobs, setOpenJobs] = useState([]);
-  const heroImageSrc = `${publicUrl()}/images/hero/hero-engine-bay.png`;
+  const localHeroSrc = `${publicUrl()}/images/hero/hero-engine-bay.png`;
+  const liveHeroSrc = 'https://amazonfiltration.co.ke/images/hero/hero-engine-bay.png';
+  const [heroImageSrc, setHeroImageSrc] = useState(localHeroSrc);
+
+  useEffect(() => {
+    let cancelled = false;
+    const probe = new Image();
+    probe.onload = () => {
+      if (!cancelled) setHeroImageSrc(localHeroSrc);
+    };
+    probe.onerror = () => {
+      if (!cancelled) setHeroImageSrc(liveHeroSrc);
+    };
+    probe.src = localHeroSrc;
+    return () => {
+      cancelled = true;
+    };
+  }, [localHeroSrc]);
 
   useEffect(() => {
     let cancelled = false;
@@ -25,75 +67,106 @@ const HomePage = () => {
     };
   }, []);
   const heroImageAlt =
-    'High-performance engine bay with premium intake filtration — automotive and industrial applications';
+    'High-performance engine bay with premium intake filtration for automotive and industrial applications';
 
   const industryPartnerCards = [
     {
       title: 'Custom Design',
       description:
-        'Our engineering team designs custom filtration solutions tailored to your specific requirements and applications.',
+        'Engineering designs custom air, fuel, oil, and hydraulic elements to your housing, media, and duty cycle. Not a catalogue guess.',
       path: '/contact?service=custom-design',
-      image: `${publicUrl()}/images/services/industry-partners/custom-design.png`,
-      imageAlt: 'Engineering worker reviewing custom design plans'
+      sources: imgSet('/images/home/custom-design.jpg', '/images/services/industry-partners/custom-design.png'),
+      imageAlt: 'Engineer reviewing a custom filter design beside production samples'
     },
     {
       title: 'Supply Chain Management',
       description:
-        'Comprehensive supply chain management for both original equipment manufacturers and aftermarket distribution.',
+        'Factory scheduling, batching, and stores control for OEM-style programmes and aftermarket volume across East Africa.',
       path: '/contact?service=supply-chain-management',
-      image: `${publicUrl()}/images/services/industry-partners/supply-chain.png`,
-      imageAlt: 'Packages moving through supply chain conveyor system'
+      sources: imgSet('/images/home/supply-chain.jpg', '/images/services/industry-partners/supply-chain.png'),
+      imageAlt: 'Organised factory warehouse with filter cartons on racking'
     },
     {
       title: 'Distribution Services',
       description:
-        'Efficient logistics and distribution services for large-scale orders and international shipments.',
+        'Plant-to-distributor logistics for large orders. Palletised lines, labelled cartons, and regional lead times you can plan around.',
       path: '/contact?service=distribution-services',
-      image: `${publicUrl()}/images/services/industry-partners/distribution.png`,
-      imageAlt: 'Distribution truck for shipment logistics'
+      sources: imgSet('/images/home/distribution.jpg', '/images/services/industry-partners/distribution.png'),
+      imageAlt: 'Heavy goods truck on the road for factory distribution'
     },
     {
       title: 'Expert Support',
       description:
-        'Expert technical support and training programs to help your team optimize filtration systems.',
+        'Application support at the engine and the plant: fitment, media choice, and training for your workshop or fleet team.',
       path: '/contact?service=expert-support',
-      image: `${publicUrl()}/images/services/industry-partners/expert-support.png`,
-      imageAlt: 'Technical experts providing support on site'
+      sources: imgSet('/images/home/expert-support.jpg', '/images/services/industry-partners/expert-support.png'),
+      imageAlt: 'Technician explaining filter housings on a diesel engine'
     },
     {
       title: 'After-sales Support',
       description:
-        'Comprehensive after-sales support including warranty services and ongoing maintenance assistance.',
+        'Warranty, replacements, and ongoing supply so a programme does not stop after the first invoice.',
       path: '/contact?service=after-sales-support',
-      image: `${publicUrl()}/images/services/industry-partners/after-sales.png`,
-      imageAlt: 'Customer support representative on headset'
+      sources: imgSet('/images/home/after-sales.jpg', '/images/services/industry-partners/after-sales.png'),
+      imageAlt: 'After-sales engineer issuing boxed filters from plant stores'
     },
     {
       title: 'Quality Testing',
       description:
-        'Rigorous quality testing and certification to ensure all products meet international standards.',
+        'Incoming media and finished filters are checked for fit, flow, and durability before a batch leaves Embakasi.',
       path: '/contact?service=quality-testing',
-      image: `${publicUrl()}/images/services/industry-partners/quality-testing.png`,
-      imageAlt: 'Technician performing quality testing in production'
+      sources: imgSet('/images/home/quality-testing.jpg', '/images/services/industry-partners/quality-testing.png'),
+      imageAlt: 'Quality inspector checking oil and air filters on a test bench'
     },
   ];
 
   const features = [
     {
-      icon: <Award className="w-12 h-12 amazon-text-accent" />,
-      title: 'Reliable Quality',
-      description: 'All our filters meet international standards and are rigorously tested for performance and durability.'
+      icon: <Factory className="w-8 h-8" />,
+      title: 'Nairobi factory',
+      description: 'Air, fuel, oil, and hydraulic lines are designed and produced at our Embakasi plant, not traded in from a shelf.',
+      sources: imgSet('/images/home/nairobi-factory.jpg'),
+      imageAlt: 'Filter production line inside the Nairobi factory'
     },
     {
-      icon: <Award className="w-12 h-12 amazon-text-accent" />,
-      title: 'Industry Expertise',
-      description: 'Over 3 years of experience serving automotive, construction, agriculture, and industrial sectors.'
+      icon: <ShieldCheck className="w-8 h-8" />,
+      title: 'Tested to spec',
+      description: 'Every run is checked for fit, flow, and durability so fleets and distributors get consistent product.',
+      sources: imgSet('/images/home/tested-to-spec.jpg'),
+      imageAlt: 'Inspector measuring a fuel filter during quality control'
     },
     {
-      icon: <Users className="w-12 h-12 amazon-text-accent" />,
-      title: 'Customer Focus',
-      description: 'Dedicated support team providing technical consultation and after-sales service.'
+      icon: <Truck className="w-8 h-8" />,
+      title: 'Built for supply',
+      description: 'OEM-style programmes and aftermarket volume for automotive, construction, agriculture, and industry.',
+      sources: imgSet('/images/home/built-for-supply.jpg'),
+      imageAlt: 'Warehouse aisle stacked with pallets ready for dispatch'
     }
+  ];
+
+  const productLines = [
+    { name: 'Air filters', to: '/products#category-air-filters' },
+    { name: 'Fuel filters', to: '/products#category-fuel-filters' },
+    { name: 'Oil filters', to: '/products#category-oil-filters' },
+    { name: 'Hydraulic return', to: '/products#category-hydraulic-return-filters' },
+    { name: 'Coolant', to: '/products#category-coolant-filters' },
+    { name: 'Cabin', to: '/products#category-cabin-filters' },
+  ];
+
+  const programmeSteps = [
+    { num: '01', title: 'Tell us the machine', copy: 'Housing, media, duty cycle, and volume. We match a line or draw a custom spec.' },
+    { num: '02', title: 'Approve a sample', copy: 'Factory samples and fitment checks before you commit a programme.' },
+    { num: '03', title: 'We run the batch', copy: 'Production and QC at Embakasi, labelled and packed to your catalogue.' },
+    { num: '04', title: 'Dispatch and support', copy: 'Palletised supply, lead times you can plan, and after-sales if something shifts.' },
+  ];
+
+  const sectors = [
+    { name: 'Automotive', to: '/industries' },
+    { name: 'Construction', to: '/industries' },
+    { name: 'Agriculture', to: '/industries' },
+    { name: 'Power & energy', to: '/industries' },
+    { name: 'Industrial', to: '/industries' },
+    { name: 'Marine', to: '/industries' },
   ];
 
   return (
@@ -114,34 +187,31 @@ const HomePage = () => {
           aria-hidden
         />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-          <div className="max-w-2xl text-center lg:text-left text-zinc-900">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-semibold leading-tight tracking-tight text-black">
-              <span className="text-blue-600">Your</span>{' '}
-              <span className="amazon-hero-trusted-gradient">Trusted Supplier</span> For
-              <span className="block mt-2 text-black">Machine Filtration</span>
+          <div className="af-home-hero-copy text-zinc-900">
+            <p className="af-kicker-row">Made in Nairobi, since 2020</p>
+            <h1>
+              Your <span className="amazon-hero-trusted-gradient">Trusted Supplier</span>
+              <span className="block">for Machine Filtration</span>
             </h1>
-            <p className="mt-6 text-xl sm:text-2xl font-medium text-zinc-800 max-w-xl mx-auto lg:mx-0 leading-snug">
-              Reliable filtration solutions since 2020 — engineered for distributors and industry across East Africa.
+            <p className="af-home-hero-lead">
+              Factory-direct filters for distributors, fleets, and industry across East Africa.
             </p>
-            <p className="mt-4 text-lg amazon-text-muted max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Air, fuel, oil, and hydraulic lines; premium conical and cartridge designs for high-performance intake and
-              engine protection.
+            <p className="af-home-hero-sub amazon-text-muted">
+              Air, fuel, oil, and hydraulic lines. Conical and cartridge designs built for intake and engine protection.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link
-                to="/products"
-                className="group amazon-btn-hero-primary inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-lg"
-              >
-                <Wrench className="w-6 h-6" />
-                Explore products
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <div className="af-line-chips">
+              {productLines.map((line) => (
+                <Link key={line.name} to={line.to} className="af-line-chip">{line.name}</Link>
+              ))}
+            </div>
+            <div className="af-home-hero-actions">
+              <Link to="/products" className="amazon-btn-hero-primary">
+                <Wrench className="w-5 h-5" />
+                View manufacturing range
+                <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link
-                to="/contact"
-                className="amazon-btn-hero-outline inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-lg"
-              >
-                <Users className="w-6 h-6" />
-                Get a quote
+              <Link to="/contact" className="amazon-btn-hero-outline">
+                Talk to the plant
               </Link>
             </div>
           </div>
@@ -153,7 +223,7 @@ const HomePage = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <p className="text-sm sm:text-base font-medium text-zinc-900 inline-flex items-center gap-2">
               <Briefcase className="w-5 h-5 text-orange-700 shrink-0" />
-              We are hiring — {openJobs.length === 1 ? openJobs[0].title : `${openJobs.length} open vacancies`}
+              We are hiring: {openJobs.length === 1 ? openJobs[0].title : `${openJobs.length} open vacancies`}
             </p>
             <Link
               to="/careers"
@@ -166,105 +236,135 @@ const HomePage = () => {
         </section>
       ) : null}
 
-      {/* Built for industry partners — left rail + large visual */}
-      <section className="amazon-home-section">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-          <div className="max-w-3xl mb-10 md:mb-14 text-left">
+      <section className="af-path-section">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+          <div className="max-w-3xl mb-8 md:mb-10">
+            <p className="af-kicker-row">How a programme starts</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+              From spec to dispatch
+            </h2>
+          </div>
+          <ol className="af-path-grid">
+            {programmeSteps.map((step) => (
+              <li key={step.num} className="af-path-step">
+                <span>{step.num}</span>
+                <h3>{step.title}</h3>
+                <p>{step.copy}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="af-prog-section" id="factory-programmes">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+          <div className="af-prog-intro max-w-3xl mb-10 md:mb-12">
+            <p className="af-kicker-row">Factory programmes</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
               Built for industry partners
             </h2>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-              Distributor programmes, fleet support, and OEM-style runs — engineered and built in our Nairobi factory
+              Distributor programmes, fleet support, and OEM-style runs, engineered and built in our Nairobi factory.
             </p>
           </div>
 
-          <div className="amazon-industry-layout">
-            <div className="flex flex-col min-w-0">
-              <nav className="amazon-industry-rail flex flex-col" aria-label="Industry focus">
-                {industryPartnerCards.map((card, index) => (
-                  <button
-                    key={card.path}
-                    type="button"
-                    onClick={() => setActiveIndustryIndex(index)}
-                    className={`amazon-industry-tab text-left w-full flex items-center gap-3 py-4 px-2 rounded-lg transition-colors uppercase tracking-wide text-sm md:text-base ${
-                      activeIndustryIndex === index ? 'is-active font-semibold' : ''
-                    }`}
-                  >
-                    <ArrowRight
-                      className={
-                        activeIndustryIndex === index
-                          ? 'w-5 h-5 shrink-0 text-blue-600'
-                          : 'w-5 h-5 shrink-0 opacity-0 pointer-events-none'
-                      }
-                      aria-hidden
-                    />
-                    {card.title}
-                  </button>
-                ))}
-              </nav>
-              <div className="mt-8">
-                <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-6">
-                  {industryPartnerCards[activeIndustryIndex].description}
-                </p>
-                <Link
-                  to={industryPartnerCards[activeIndustryIndex].path}
-                  className="inline-flex items-center gap-2 text-base font-bold text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  See more
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
-            </div>
+          <div className="af-prog-list">
+            {industryPartnerCards.map((card, index) => (
+              <article
+                key={card.path}
+                className={`af-prog-row ${index % 2 === 1 ? 'is-flipped' : ''}`}
+              >
+                <div className="amazon-industry-visual af-prog-row-media relative overflow-hidden min-h-[220px] sm:min-h-[280px] lg:min-h-[320px]">
+                  <FallbackImg
+                    sources={card.sources}
+                    alt={card.imageAlt}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                </div>
+                <div className="af-prog-row-copy">
+                  <span className="af-prog-num">{String(index + 1).padStart(2, '0')}</span>
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                  <Link to={card.path} className="af-prog-more">
+                    Discuss this programme
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="amazon-industry-visual">
-              <img
-                key={industryPartnerCards[activeIndustryIndex].path}
-                src={industryPartnerCards[activeIndustryIndex].image}
-                alt={industryPartnerCards[activeIndustryIndex].imageAlt}
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="eager"
-                decoding="async"
-              />
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background:
-                    'linear-gradient(to top, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.65) 38%, rgba(255,255,255,0.2) 68%, transparent 100%)',
-                }}
-                aria-hidden
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 pointer-events-none">
-                <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 uppercase tracking-tight">
-                  {industryPartnerCards[activeIndustryIndex].title}
-                </p>
-              </div>
+      <section className="af-why-section">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+          <div className="max-w-3xl mb-10 md:mb-12">
+            <p className="af-kicker-row">Why the plant</p>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-black mb-3 md:mb-4 tracking-tight">
+              A Kenyan filter manufacturer
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl amazon-text-muted max-w-2xl leading-relaxed">
+              Quality, factory control, and supply that distributors and workshops can plan around.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+            {features.map((feature) => (
+              <article key={feature.title} className="af-why-card">
+                <div className="af-why-photo">
+                  <FallbackImg
+                    sources={feature.sources}
+                    alt={feature.imageAlt}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="af-why-copy">
+                  <div className="af-why-icon">{feature.icon}</div>
+                  <h3>{feature.title}</h3>
+                  <p>{feature.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="af-sector-row">
+            <p className="af-kicker-row">Sectors we supply</p>
+            <div className="af-line-chips">
+              {sectors.map((sector) => (
+                <Link key={sector.name} to={sector.to} className="af-line-chip">{sector.name}</Link>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="amazon-home-section py-12 md:py-20 amazon-border-t-subtle">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-semibold text-black mb-3 md:mb-4 tracking-tight">
-              Why Choose Amazon Filtration?
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl amazon-text-muted max-w-2xl mx-auto leading-relaxed">
-              We deliver excellence through quality, expertise, and customer commitment
+      <section className="af-factory-cta af-factory-cta--photo">
+        <div className="af-factory-cta-media" aria-hidden>
+          <FallbackImg
+            sources={imgSet('/images/home/factory-cta.jpg')}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <p className="af-kicker-row">Production &amp; supply</p>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">Need a run, a spec, or a distributor programme?</h2>
+            <p className="mt-2 text-sm sm:text-base text-white/75 max-w-xl">
+              Speak to the Nairobi team for factory-direct pricing, samples, and lead times.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="text-center p-4 md:p-6">
-                <div className="flex justify-center mb-4 md:mb-6">
-                  {feature.icon}
-                </div>
-                <h3 className="text-lg md:text-xl font-semibold text-zinc-900 mb-3 md:mb-4">{feature.title}</h3>
-                <p className="text-sm md:text-base amazon-text-muted leading-relaxed">{feature.description}</p>
-              </div>
-            ))}
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link to="/contact" className="af-site-cta text-center">Request a quote</Link>
+            <Link to="/products" className="amazon-btn-hero-outline inline-flex items-center justify-center px-5 py-3 font-semibold">
+              Browse lines
+            </Link>
           </div>
         </div>
       </section>

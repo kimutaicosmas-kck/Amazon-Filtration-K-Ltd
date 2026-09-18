@@ -32,7 +32,6 @@ const ContactPage = () => {
       setMessage(
         `I am interested in getting a quote for the following product:\n\nProduct: ${product}\nCode: ${code}\n\nPlease provide pricing and availability information.`
       );
-      setInquiryType('quote');
     } else if (service) {
       setSubject(`Inquiry: ${service.replace(/-/g, ' ')}`);
     }
@@ -110,7 +109,7 @@ const ContactPage = () => {
   };
 
   const inputClass =
-    'w-full px-3 py-3 text-sm text-zinc-900 bg-zinc-50 border border-zinc-100 rounded-none focus:outline-none focus:ring-2 focus:ring-red-200 focus:border-red-300';
+    'w-full px-3 py-3 text-sm text-zinc-900 bg-white border border-zinc-200 rounded-none focus:outline-none focus:ring-2 focus:ring-orange-200 focus:border-orange-400';
   const labelClass = 'block text-xs font-semibold text-zinc-700 mb-1.5';
 
   return (
@@ -118,31 +117,34 @@ const ContactPage = () => {
       <section className="amazon-contact-sales-wrap">
         <div className="amazon-contact-sales-inner">
           <aside className="amazon-contact-sales-left">
-            <p className="amazon-contact-kicker">CONTACT</p>
-            <h1 className="amazon-contact-title">Talk to sales</h1>
+            <p className="amazon-contact-kicker">FACTORY DESK</p>
+            <h1 className="amazon-contact-title">Talk to the plant</h1>
             <p className="amazon-contact-copy">
-              Want to learn more about our Sage solutions and services? Simply complete the form to arrange a call with a
-              member of our sales team.
+              Need a production run, a distributor programme, or a custom filter spec? Complete the form and the Nairobi
+              commercial team will call you.
             </p>
             <p className="amazon-contact-copy">We aim to respond to every enquiry within 24 hours.</p>
+            <p className="amazon-contact-copy">
+              Bellway Industrial Park, Embakasi Road, off Airport North Road, Nairobi.
+            </p>
 
             <div className="amazon-contact-callout">
-              <p className="amazon-contact-callout-label">Call us on:</p>
+              <p className="amazon-contact-callout-label">Call the plant</p>
               <a href="tel:+254714752613" className="amazon-contact-callout-link">
-                +254 714752613
+                +254 714 752 613
               </a>
               <br />
               <a href="tel:+254720799363" className="amazon-contact-callout-link">
-                +254 720799363
+                +254 720 799 363
               </a>
             </div>
           </aside>
 
           <div className="amazon-contact-sales-form-card">
-            <h2 className="amazon-contact-form-title">Get in touch with our sales team</h2>
+            <h2 className="amazon-contact-form-title">Request factory-direct pricing</h2>
             <p className="amazon-contact-form-copy">
-              Our friendly sales team is always on hand to answer any queries you may have about our products, services,
-              or anything else you&apos;re curious about.
+              Tell us the line, volume, and application. We will come back with samples, lead times, and programme
+              options from the Embakasi plant.
             </p>
 
             {isSubmitted ? (
@@ -151,7 +153,7 @@ const ContactPage = () => {
                 <button
                   type="button"
                   onClick={() => setIsSubmitted(false)}
-                  className="mt-4 inline-flex items-center text-sm font-semibold text-red-600 hover:text-red-700"
+                  className="mt-4 inline-flex items-center text-sm font-semibold text-orange-800 hover:text-orange-950"
                 >
                   Send another message
                 </button>

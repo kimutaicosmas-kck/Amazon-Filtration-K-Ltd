@@ -153,10 +153,10 @@ function FilterLineRow({ line, index, base }) {
 
 const landingStyles = `
 #products-evolu-landing {
-  --pl-lime: #2997ff;
-  --pl-lime-hover: #1a7fd9;
-  --pl-hero: #f4f4f3;
-  --pl-card: #1a1a1a;
+  --pl-lime: #c2410c;
+  --pl-lime-hover: #9a3412;
+  --pl-hero: #f7f5f1;
+  --pl-card: #121820;
 }
 #products-evolu-landing .pl-hero-bg {
   background-color: var(--pl-hero) !important;
@@ -178,7 +178,7 @@ const landingStyles = `
   background-color: var(--pl-lime) !important;
   color: #ffffff !important;
   font-weight: 700;
-  clip-path: polygon(16px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 16px);
+  border-radius: 2px;
   padding: 1rem 1.85rem;
   display: inline-flex;
   align-items: center;
@@ -376,14 +376,15 @@ const ProductsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-12 xl:gap-16 min-h-[min(78vh,640px)] lg:min-h-[560px]">
             <div className="shrink-0 pt-10 lg:pt-16 pb-4 z-10 w-full max-w-xl lg:max-w-[min(100%,28rem)] lg:pr-4">
+              <p className="af-kicker-row">Manufacturing range</p>
               <h1 className="pl-headline pl-text-ink">
-                Future of
+                Factory
                 <br />
-                Filtration
+                filtration
               </h1>
               <p className="mt-6 text-base sm:text-lg leading-relaxed pl-text-sub max-w-md">
                 Factory-direct air, fuel, oil, and hydraulic programmes engineered in Nairobi for distributors and
-                fleets — premium media, disciplined tooling, and regional logistics built for East Africa.
+                fleets. Premium media, disciplined tooling, and regional logistics built for East Africa.
               </p>
               <div className="mt-9">
                 <a href="#filter-lines" className="pl-cta">
@@ -412,7 +413,7 @@ const ProductsPage = () => {
             <div className="pl-hero-visual relative flex flex-1 min-w-0 justify-center items-end min-h-[280px] sm:min-h-[340px] lg:min-h-[min(52vh,520px)]">
               <img
                 src={heroProductSrc}
-                alt="High-performance automotive air filters — Amazon Filtration product render"
+                alt="High-performance automotive air filters from Amazon Filtration"
                 className="pl-hero-img relative z-[1] h-auto w-full max-w-[min(100%,460px)] sm:max-w-[520px] lg:max-w-[min(720px,56vw)] xl:max-w-[780px] object-contain object-bottom select-none pointer-events-none"
                 width={720}
                 height={720}
@@ -437,7 +438,7 @@ const ProductsPage = () => {
               What we manufacture
             </h2>
             <p className="mt-4 text-base sm:text-lg pl-text-sub leading-relaxed">
-              Editorial overview of each programme — static on this page. When you are ready, route buyers to contact
+              Editorial overview of each programme on this page. When you are ready, route buyers to contact
               for MOQs, samples, and catalogue alignment.
             </p>
           </div>
@@ -454,7 +455,7 @@ const ProductsPage = () => {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold pl-text-ink mb-4 tracking-tight">Next step</h2>
           <p className="pl-text-sub mb-8 leading-relaxed">
-            Programme pricing, samples, and technical questionnaires ship through your commercial team — start on
+            Programme pricing, samples, and technical questionnaires ship through your commercial team. Start on
             contact for datasheets and programme details when published.
           </p>
           <Link

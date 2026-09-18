@@ -32,8 +32,8 @@ const CareersPage = () => {
           <p className="amazon-contact-kicker mb-3">CAREERS</p>
           <h1 className="max-w-3xl">Join Amazon Filtration</h1>
           <p className="mt-5 max-w-2xl text-base sm:text-lg amazon-text-muted leading-relaxed">
-            We manufacture air, fuel, oil, and hydraulic filters in Nairobi. When a role is open, it is posted here —
-            apply directly and our team will review every application.
+            We manufacture air, fuel, oil, and hydraulic filters in Nairobi. When a role is open, it is posted here.
+            Apply directly and our team will review every application.
           </p>
         </div>
       </section>
@@ -45,7 +45,7 @@ const CareersPage = () => {
               <Wrench className="w-8 h-8 text-orange-700 mb-3" />
               <h2 className="text-lg font-semibold text-zinc-900 mb-2">Real factory work</h2>
               <p className="text-sm text-zinc-600 leading-relaxed">
-                Production, quality, stores, and engineering roles inside a working filter plant — not a trading desk.
+                Production, quality, stores, and engineering roles inside a working filter plant, not a trading desk.
               </p>
             </div>
             <div className="amazon-career-perk">

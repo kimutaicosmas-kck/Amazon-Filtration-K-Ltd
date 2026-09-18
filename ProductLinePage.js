@@ -224,12 +224,12 @@ const ProductLinePage = () => {
           </Link>
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900">{category}</h1>
           <p className="mt-3 text-zinc-600 max-w-2xl leading-relaxed">
-            Catalogue items in this line — factory programmes and cross-references. Use pagination to browse the full
+            Catalogue items in this line, factory programmes and cross-references. Use pagination to browse the full
             list.
           </p>
           {total > 0 ? (
             <p className="mt-2 text-sm text-zinc-500">
-              Showing {(page - 1) * perPage + 1}–{Math.min(page * perPage, total)} of {total} products
+              Showing {(page - 1) * perPage + 1} to {Math.min(page * perPage, total)} of {total} products
             </p>
           ) : null}
         </div>

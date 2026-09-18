@@ -1,0 +1,774 @@
+/**
+ * Manufacturer polish — loaded last.
+ * Does not replace layout rules already in industrial/dark-theme.
+ */
+:root {
+  --mfg-steel: #2f3b4c;
+  --mfg-steel-2: #3d4a5c;
+  --mfg-line: rgba(255, 255, 255, 0.14);
+  --mfg-copper: #c2410c;
+  --mfg-copper-2: #9a3412;
+  --mfg-paper: #f6f4ef;
+  --mfg-ink: #1f2937;
+}
+
+html,
+body,
+#root {
+  background-color: var(--mfg-paper) !important;
+}
+
+#root nav.af-site-nav {
+  background: var(--mfg-steel) !important;
+  border-bottom: 1px solid var(--mfg-line) !important;
+  box-shadow: 0 8px 24px rgba(12, 18, 32, 0.18) !important;
+}
+
+#root nav.af-site-nav .af-nav-brand,
+#root nav.af-site-nav .cursor-pointer {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+#root nav.af-site-nav .af-nav-logo,
+#root nav.af-site-nav .af-nav-brand > a > div {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#root nav.af-site-nav img[alt="Amazon Filtration (K) Ltd Logo"] {
+  filter: none !important;
+  background: transparent !important;
+}
+
+#root nav.af-site-nav .af-site-nav-link {
+  color: rgba(247, 245, 241, 0.78) !important;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 0.2rem;
+}
+
+#root nav.af-site-nav .af-site-nav-link:hover,
+#root nav.af-site-nav .af-site-nav-link.is-active {
+  color: #fff !important;
+  border-bottom-color: var(--mfg-copper);
+}
+
+#root nav.af-site-nav a.af-site-cta,
+#root nav.af-site-nav .af-site-cta,
+#root a.af-site-cta,
+#root .af-site-cta,
+#root .amazon-contact-submit,
+#root a.amazon-contact-submit,
+#root button.amazon-contact-submit,
+#root .bg-orange-700,
+#root a.bg-orange-700,
+#root button.bg-orange-700,
+#root .amazon-home-page .amazon-btn-hero-primary,
+#root .amazon-btn-hero-primary,
+#root .btn-primary,
+#root a.btn-primary,
+#root button.btn-primary,
+#root .amazon-pd-btn-primary,
+#root a.amazon-pd-btn-primary,
+#root button.amazon-pd-btn-primary,
+#root #products-evolu-landing .pl-cta,
+#root #products-evolu-landing .pl-line-cta {
+  background: var(--mfg-copper) !important;
+  background-color: var(--mfg-copper) !important;
+  color: #ffffff !important;
+  border-radius: 2px !important;
+  padding: 0.7rem 1.2rem !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: none !important;
+  border: 0 !important;
+  clip-path: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.4rem;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#root nav.af-site-nav a.af-site-cta:hover,
+#root nav.af-site-nav .af-site-cta:hover,
+#root a.af-site-cta:hover,
+#root .af-site-cta:hover,
+#root .amazon-contact-submit:hover,
+#root a.amazon-contact-submit:hover,
+#root button.amazon-contact-submit:hover,
+#root .bg-orange-700:hover,
+#root a.bg-orange-700:hover,
+#root button.bg-orange-700:hover,
+#root .hover\:bg-orange-800:hover,
+#root .amazon-home-page .amazon-btn-hero-primary:hover,
+#root .amazon-btn-hero-primary:hover,
+#root .btn-primary:hover,
+#root a.btn-primary:hover,
+#root button.btn-primary:hover,
+#root .amazon-pd-btn-primary:hover,
+#root a.amazon-pd-btn-primary:hover,
+#root button.amazon-pd-btn-primary:hover,
+#root #products-evolu-landing .pl-cta:hover,
+#root #products-evolu-landing .pl-line-cta:hover {
+  background: var(--mfg-copper-2) !important;
+  background-color: var(--mfg-copper-2) !important;
+  color: #ffffff !important;
+}
+
+#root nav.af-site-nav .lg\\:hidden {
+  color: #fff !important;
+}
+
+.af-kicker-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mfg-copper);
+}
+
+.af-kicker-row:before,
+#root .af-kicker-row:before,
+#root .amazon-contact-kicker:before,
+#root .af-kicker:before {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+}
+
+#root .amazon-home-page .amazon-btn-hero-outline,
+#root .amazon-btn-hero-outline {
+  border: 1px solid #2f3b4c !important;
+  color: #2f3b4c !important;
+  background: #ffffff !important;
+  border-radius: 2px !important;
+  clip-path: none !important;
+}
+
+.af-line-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.af-line-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid rgba(18, 24, 32, 0.16);
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #121820;
+}
+
+.af-mfg-card {
+  background: #fff;
+  border: 1px solid #e4dfd6;
+  padding: 1.5rem 1.35rem 1.6rem;
+}
+
+.af-mfg-card h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.1rem;
+  color: #121820;
+}
+
+.af-factory-cta {
+  background: var(--mfg-steel-2);
+  color: #f7f5f1;
+}
+
+.af-factory-cta h2 {
+  color: #fff !important;
+}
+
+#root footer,
+#root footer.af-site-footer,
+#root footer.bg-black,
+#root footer.bg-industrial-900,
+#root .bg-industrial-900 {
+  background: var(--mfg-steel) !important;
+}
+
+#root .amazon-industry-visual {
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: 260px;
+  border: 1px solid #e4dfd6;
+}
+
+#root .amazon-home-hero {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+}
+
+#root .amazon-home-page .af-home-hero-copy {
+  max-width: 38rem;
+  margin: 0;
+  text-align: left;
+}
+
+#root .amazon-home-page .af-home-hero-copy .af-kicker-row {
+  display: block;
+  margin: 0 0 0.85rem;
+  padding: 0;
+}
+
+#root .amazon-home-page .af-home-hero-copy h1 {
+  margin: 0;
+  font-size: clamp(2.15rem, 5vw, 3.6rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  color: #121820 !important;
+  text-align: left;
+}
+
+#root .amazon-home-page .af-home-hero-copy .af-home-hero-lead,
+#root .amazon-home-page .af-home-hero-copy .af-home-hero-sub {
+  margin: 1rem 0 0;
+  max-width: 34rem;
+  text-align: left;
+}
+
+#root .amazon-home-page .af-home-hero-copy .af-home-hero-lead {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #1f2937 !important;
+}
+
+#root .amazon-home-page .af-home-hero-copy .af-home-hero-sub {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+#root .amazon-home-page .af-home-hero-copy .af-line-chips {
+  justify-content: flex-start;
+  margin-top: 1.2rem;
+}
+
+#root .amazon-home-page .af-home-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  margin-top: 1.6rem;
+}
+
+#root .amazon-home-page .af-home-hero-actions .amazon-btn-hero-outline {
+  padding: 0.7rem 1.2rem !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  min-height: 2.7rem;
+}
+
+@media (min-width: 640px) {
+  #root .amazon-industry-visual {
+    min-height: 360px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #root .amazon-industry-visual {
+    min-height: 420px;
+  }
+}
+
+.af-factory-cta .amazon-btn-hero-outline,
+#root .af-factory-cta .amazon-btn-hero-outline {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  color: #fff !important;
+}
+
+.af-factory-cta .amazon-btn-hero-outline:hover,
+#root .af-factory-cta .amazon-btn-hero-outline:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+#root .amazon-contact-page .amazon-contact-kicker,
+#root .amazon-careers-page .amazon-contact-kicker {
+  color: var(--mfg-copper) !important;
+}
+
+#root .amazon-contact-page .amazon-contact-submit,
+#root .amazon-careers-page .amazon-contact-submit {
+  background: var(--mfg-copper) !important;
+  border-radius: 2px !important;
+}
+
+#root .amazon-contact-page .amazon-contact-submit:hover,
+#root .amazon-careers-page .amazon-contact-submit:hover {
+  background: var(--mfg-copper-2) !important;
+}
+
+#root .af-industry-card {
+  background: #fff;
+  border: 1px solid #e4dfd6;
+  box-shadow: none;
+}
+
+#root .af-industry-card img {
+  height: 16rem;
+}
+
+#root footer.af-site-footer h4 {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247, 245, 241, 0.55);
+}
+
+#root footer,
+#root footer a,
+#root footer p,
+#root footer .amazon-text-muted,
+#root footer .text-gray-300,
+#root footer .text-gray-400 {
+  color: rgba(246, 244, 239, 0.78) !important;
+}
+
+#root footer a:hover {
+  color: #fff !important;
+}
+
+#root footer .text-orange-500 {
+  color: #d97706 !important;
+}
+
+#root .amazon-about-page,
+#root .amazon-industries-page,
+#root .amazon-careers-page {
+  background: var(--mfg-paper) !important;
+}
+
+#root .amazon-about-page h1,
+#root .amazon-about-page h2,
+#root .amazon-about-page h3 {
+  color: #121820 !important;
+}
+
+#root .amazon-about-page .af-factory-cta h2,
+#root .af-factory-cta h2 {
+  color: #fff !important;
+}
+
+#root .amazon-home-page .af-prog-section,
+#root .amazon-home-page .af-why-section,
+#root .amazon-home-page .af-path-section {
+  background: var(--mfg-paper) !important;
+}
+
+.af-path-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.af-path-step {
+  background: #fff;
+  border: 1px solid #e4dfd6;
+  padding: 1.2rem 1.15rem 1.3rem;
+}
+
+.af-path-step span {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--mfg-copper);
+}
+
+.af-path-step h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  color: #121820;
+}
+
+.af-path-step p {
+  margin: 0;
+  color: #5b6170;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.af-sector-row {
+  margin-top: 2.25rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid #e4dfd6;
+}
+
+#root a.af-line-chip {
+  text-decoration: none;
+}
+
+#root a.af-line-chip:hover {
+  border-color: var(--mfg-copper);
+  color: var(--mfg-copper);
+}
+
+#root nav.af-site-nav .af-nav-phone {
+  color: rgba(247, 245, 241, 0.78) !important;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+
+#root nav.af-site-nav .af-nav-phone:hover {
+  color: #fff !important;
+}
+
+#root input[type="text"],
+#root input[type="email"],
+#root input[type="password"],
+#root input[type="number"],
+#root input[type="search"],
+#root input[type="tel"],
+#root input[type="url"],
+#root input[type="date"],
+#root input:not([type]),
+#root textarea,
+#root select,
+#root .form-modern input,
+#root .form-modern select,
+#root .form-modern textarea,
+#root .amazon-careers-page input,
+#root .amazon-careers-page textarea,
+#root .amazon-careers-page select,
+#root .amazon-contact-page input,
+#root .amazon-contact-page textarea,
+#root .amazon-contact-page select {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #121820 !important;
+  -webkit-text-fill-color: #121820 !important;
+  border-color: #d4d4d8 !important;
+  caret-color: #121820 !important;
+}
+
+#root input[type="file"] {
+  background: transparent !important;
+  color: #121820 !important;
+}
+
+#root input::placeholder,
+#root textarea::placeholder {
+  color: #71717a !important;
+  -webkit-text-fill-color: #71717a !important;
+}
+
+#root input:focus,
+#root textarea:focus,
+#root select:focus,
+#root .form-modern input:focus,
+#root .form-modern select:focus,
+#root .form-modern textarea:focus {
+  background-color: #ffffff !important;
+  color: #121820 !important;
+  -webkit-text-fill-color: #121820 !important;
+}
+
+#root input:-webkit-autofill,
+#root input:-webkit-autofill:hover,
+#root input:-webkit-autofill:focus,
+#root textarea:-webkit-autofill {
+  -webkit-text-fill-color: #121820 !important;
+  caret-color: #121820 !important;
+  box-shadow: 0 0 0 1000px #ffffff inset !important;
+  transition: background-color 9999s ease-out 0s;
+}
+
+@media (min-width: 768px) {
+  .af-path-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .af-path-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.af-prog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.af-prog-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #fff;
+  border: 1px solid #e4dfd6;
+  overflow: hidden;
+}
+
+.af-prog-row-media {
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: 220px;
+  border: 0 !important;
+}
+
+.af-prog-row-copy {
+  padding: 1.4rem 1.35rem 1.55rem;
+}
+
+.af-prog-num {
+  display: inline-block;
+  margin-bottom: 0.55rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--mfg-copper);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.af-prog-row-copy h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
+  color: #121820;
+}
+
+.af-prog-row-copy p {
+  margin: 0 0 1.1rem;
+  color: #5b6170;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.af-prog-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--mfg-copper) !important;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.af-prog-more:hover {
+  color: var(--mfg-copper-2) !important;
+}
+
+.af-why-card {
+  background: #fff;
+  border: 1px solid #e4dfd6;
+  overflow: hidden;
+}
+
+.af-why-photo {
+  position: relative;
+  overflow: hidden;
+  height: 210px;
+  min-height: 210px;
+  background: #1b2430;
+}
+
+.af-why-copy {
+  padding: 1.25rem 1.2rem 1.4rem;
+}
+
+.af-why-icon {
+  color: var(--mfg-copper);
+  margin-bottom: 0.7rem;
+}
+
+.af-why-copy h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.15rem;
+  color: #121820;
+}
+
+.af-why-copy p {
+  margin: 0;
+  color: #5b6170;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.af-factory-cta--photo {
+  position: relative;
+  overflow: hidden;
+  background: var(--mfg-steel);
+}
+
+.af-factory-cta-media {
+  position: absolute;
+  inset: 0;
+}
+
+.af-factory-cta-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.af-factory-cta-media:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(47, 59, 76, 0.92) 0%,
+    rgba(47, 59, 76, 0.78) 48%,
+    rgba(47, 59, 76, 0.52) 100%
+  );
+}
+
+@media (min-width: 640px) {
+  .af-prog-row-media {
+    min-height: 280px;
+  }
+}
+
+.af-about-hero {
+  background: var(--mfg-paper);
+  border-bottom: 1px solid #e4dfd6;
+}
+
+.af-about-photo {
+  background: #e8e2d8;
+  border: 1px solid #e4dfd6;
+}
+
+.af-about-process {
+  background: #efebe3;
+  border-top: 1px solid #e4dfd6;
+  border-bottom: 1px solid #e4dfd6;
+}
+
+.af-about-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.af-about-timeline-item {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid #e4dfd6;
+  align-items: start;
+}
+
+.af-about-timeline-item:last-child {
+  border-bottom: 0;
+}
+
+.af-about-timeline-item h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+  color: #121820;
+}
+
+.af-about-timeline-item p {
+  margin: 0;
+  color: #5b6170;
+  line-height: 1.55;
+}
+
+.af-about-principle {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.af-about-principle h3 {
+  margin-bottom: 0.35rem;
+}
+
+.af-about-principle p {
+  margin: 0;
+  color: #5b6170;
+  line-height: 1.55;
+}
+
+.af-about-visit {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  background: #fff;
+  border: 1px solid #e4dfd6;
+  padding: 1.75rem 1.4rem;
+}
+
+.af-about-visit a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.af-about-visit a:hover {
+  color: var(--mfg-copper);
+}
+
+@media (min-width: 768px) {
+  .af-about-visit {
+    grid-template-columns: minmax(0, 1.4fr) minmax(12rem, 0.6fr);
+    align-items: center;
+    padding: 2.25rem 2.4rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .af-prog-row {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: stretch;
+  }
+
+  .af-prog-row.is-flipped .af-prog-row-media {
+    order: 2;
+  }
+
+  .af-prog-row.is-flipped .af-prog-row-copy {
+    order: 1;
+  }
+
+  .af-prog-row-media {
+    min-height: 320px;
+  }
+
+  .af-prog-row-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 2.25rem;
+  }
+}

@@ -232,9 +232,9 @@ const AdminCareers = () => {
                       <tr key={job.id} className="border-t border-gray-100">
                         <td className="px-4 py-3">
                           <p className="font-medium text-gray-900">{job.title}</p>
-                          <p className="text-xs text-gray-500">{job.employment_type} · {job.location}</p>
+                          <p className="text-xs text-gray-500">{job.employment_type}, {job.location}</p>
                         </td>
-                        <td className="px-4 py-3 text-gray-700">{job.department || '—'}</td>
+                        <td className="px-4 py-3 text-gray-700">{job.department || 'None'}</td>
                         <td className="px-4 py-3">
                           <span
                             className={`inline-flex px-2 py-0.5 rounded text-xs font-semibold ${
@@ -248,7 +248,7 @@ const AdminCareers = () => {
                             {job.status === 'open' && !job.is_open ? 'expired' : job.status}
                           </span>
                         </td>
-                        <td className="px-4 py-3 text-gray-700">{formatJobDate(job.closing_date) || '—'}</td>
+                        <td className="px-4 py-3 text-gray-700">{formatJobDate(job.closing_date) || 'Open'}</td>
                         <td className="px-4 py-3 text-gray-700">{job.application_count ?? 0}</td>
                         <td className="px-4 py-3">
                           <div className="flex flex-wrap gap-2">
@@ -348,7 +348,7 @@ const AdminCareers = () => {
                         </td>
                         <td className="px-3 py-3 text-gray-700">{app.job_title || 'General application'}</td>
                         <td className="px-3 py-3 text-gray-700">
-                          {app.created_at ? new Date(app.created_at.replace(' ', 'T')).toLocaleString('en-KE') : '—'}
+                          {app.created_at ? new Date(app.created_at.replace(' ', 'T')).toLocaleString('en-KE') : 'None'}
                         </td>
                         <td className="px-3 py-3">
                           <select
